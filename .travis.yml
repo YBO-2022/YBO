@@ -5,7 +5,11 @@ sudo: required
 services:
   - docker
 
-after_success:
+branches:
+  only:
+    - main
+
+script:
   - docker build -t wngusrud27/docker-frontend ./frontend
   - docker build -t wngusrud27/docker-backend ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
