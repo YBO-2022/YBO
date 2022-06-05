@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class TextSaveRequestDto {
 
-    @NotBlank(message = "댓글은 공백일 수 없습니다.")
+    @NotBlank(message = "댓글은 공백일 수 없습니다. ")
     private String value;
 
     public Text createEntityByDto(){
