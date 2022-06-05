@@ -1,0 +1,52 @@
+server:
+  port: '5000'
+  use-forward-headers: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+request:
+  logging: false
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false
+
+
+spring:
+  profiles:
+    active: local # 개발 환경에서는 local로, 배포 환경에서는 prod로
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  jpa:
+    hibernate:
+      ddl-auto: create # 개발이 진전된 다음 update로 수정
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    #    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+
