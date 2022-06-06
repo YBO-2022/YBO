@@ -1,14 +1,10 @@
 FROM openjdk:11-jdk
 
-# ARG JAR_FILE=./build/libs/*.jar
-
-# COPY ${JAR_FILE} /app.jar
-
 VOLUME /tmp
 
-RUN echo ${JAR_FILE}
+ARG JAR_FILE=./build/libs/*.jar
 
-ARG JAR_FILE
+# COPY ${JAR_FILE} /app.jar
 
 ADD ${JAR_FILE} /app.jar
 

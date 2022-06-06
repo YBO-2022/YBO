@@ -18,27 +18,22 @@ branches:
 
 before_install: 
   - cd backend
-  - chmod +x gradlew
+  - sudo wget https://services.gradle.org/distributions/gradle-6.8-bin.zip
+  - sudo unzip -qq gradle-6.8-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-6.8
+  - export PATH=$GRADLE_HOME/bin:$PATH
+  - gradle -version
+  - gradle wrap
+  - chmod +x ./gradlew
 
 script:
   # BUILD
   - ./gradlew build
 
-  # GET NAME
-  - PRJ_GROUP=$(gradle properties -q | grep "group:" | awk '{print $2}')
-  - PRJ_NAME=$(gradle properties -q | grep "name:" | awk '{print $2}')
-  - PRJ_VERSION=$(gradle properties -q | grep "version:" | awk '{print $2}')
-
-  - echo "## PROJECT_GROUP - ${PRJ_GROUP}"
-  - echo "## PROJECT_NAME - ${PRJ_NAME}"
-  - echo "## PROJECT_VERSION - ${PRJ_VERSION}"
-
-  - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
-
 after_success:
   - cd ../
   - docker build -t wngusrud27/docker-frontend ./frontend
-  - docker build -t wngusrud27/docker-backend --build-arg JAR_FILE=./build/libs/${PRJ_JAR} ./backend
+  - docker build -t wngusrud27/docker-backend ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
