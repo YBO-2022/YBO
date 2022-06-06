@@ -1,6 +1,6 @@
 language: generic
 
-jdk: oraclejdk8
+jdk: oraclejdk11
 
 sudo: required
 
