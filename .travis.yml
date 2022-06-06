@@ -1,6 +1,13 @@
 language: generic
 
+jdk: oraclejdk8
+
 sudo: required
+
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
 
 services: 
   - docker
@@ -9,10 +16,29 @@ branches:
   only:
     - main
 
+before_install: 
+  - chmod +x gradlew
+
 script:
+  # BUILD
+  - cd backend
+  - gradlew build
+
+  # GET NAME
+  - PRJ_GROUP=$(gradle properties -q | grep "group:" | awk '{print $2}')
+  - PRJ_NAME=$(gradle properties -q | grep "name:" | awk '{print $2}')
+  - PRJ_VERSION=$(gradle properties -q | grep "version:" | awk '{print $2}')
+
+  - echo "## PROJECT_GROUP - ${PRJ_GROUP}"
+  - echo "## PROJECT_NAME - ${PRJ_NAME}"
+  - echo "## PROJECT_VERSION - ${PRJ_VERSION}"
+
+  - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
+
+after_success:
 
   - docker build -t wngusrud27/docker-frontend ./frontend
-  - docker build -t wngusrud27/docker-backend ./backend
+  - docker build -t wngusrud27/docker-backend --build-arg JAR_FILE=./build/libs/${PRJ_JAR} ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
