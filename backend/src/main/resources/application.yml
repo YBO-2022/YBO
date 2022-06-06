@@ -26,9 +26,9 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:mysql://${RDS_URL}:3306/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
-    username: ${RDS_USER}
-    password: ${RDS_PASSWORD}
+    url: jdbc:mysql://${RDSURL}:3306/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+    username: ${RDSUSER}
+    password: ${RDSPASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
