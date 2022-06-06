@@ -22,7 +22,7 @@ services:
 
 before_install: 
   - cd backend
-  - chmod +x ./gradlew
+  - chmod +x gradlew
 
 script:
   # BUILD
