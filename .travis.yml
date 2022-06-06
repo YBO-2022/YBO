@@ -2,7 +2,7 @@ language: generic
 
 sudo: required
 
-services:
+services: 
   - docker
 
 branches:
@@ -10,6 +10,7 @@ branches:
     - main
 
 script:
+  - chmod +x gradlew
   - docker build -t wngusrud27/docker-frontend ./frontend
   - docker build -t wngusrud27/docker-backend ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
@@ -19,4 +20,6 @@ script:
   - docker push wngusrud27/docker-frontend 
   - docker push wngusrud27/docker-backend 
   - docker push wngusrud27/docker-nginx 
+
+
 
