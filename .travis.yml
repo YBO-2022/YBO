@@ -17,12 +17,12 @@ services:
 
 before_install: 
   - cd backend
-  - sudo wget https://services.gradle.org/distributions/gradle-6.8-bin.zip
-  - sudo unzip -qq gradle-6.8-bin.zip
-  - export GRADLE_HOME=$PWD/gradle-6.8
-  - export PATH=$GRADLE_HOME/bin:$PATH
-  - gradle -version
-  - gradle wrap
+#  - sudo wget https://services.gradle.org/distributions/gradle-6.8-bin.zip
+#  - sudo unzip -qq gradle-6.8-bin.zip
+#  - export GRADLE_HOME=$PWD/gradle-6.8
+#  - export PATH=$GRADLE_HOME/bin:$PATH
+#  - gradle -version
+#  - gradle wrap
   - chmod +x ./gradlew
 
 script:
@@ -46,7 +46,7 @@ deploy:
   region: "ap-northeast-2"
   app: "ybo-phase1-app"
   env: Ybophase1-env
-  bucket_name: elasticbeanstalk-ap-northeast-2-895948757088 #생성이 안되어 기존에 있던 것을 이용하는 것으로 추측됨
+  bucket_name: elasticbeanstalk-ap-northeast-2-895948757088 
   bucket_path: "ybo-phase1-app"
   on:
     branch: main
