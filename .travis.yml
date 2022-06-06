@@ -44,10 +44,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
-  app: "ybo-phase1-app"
+  app: "ybo-phase1"
   env: Ybophase1-env
   bucket_name: elasticbeanstalk-ap-northeast-2-895948757088 
-  bucket_path: "ybo-phase1-app"
+  bucket_path: "ybo-phase1"
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
