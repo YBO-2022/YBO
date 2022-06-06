@@ -17,12 +17,12 @@ branches:
     - main
 
 before_install: 
+  - cd backend
   - chmod +x gradlew
 
 script:
   # BUILD
-  - cd backend
-  - gradlew build
+  - ./gradlew build
 
   # GET NAME
   - PRJ_GROUP=$(gradle properties -q | grep "group:" | awk '{print $2}')
@@ -36,7 +36,7 @@ script:
   - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
 
 after_success:
-
+  - cd ../
   - docker build -t wngusrud27/docker-frontend ./frontend
   - docker build -t wngusrud27/docker-backend --build-arg JAR_FILE=./build/libs/${PRJ_JAR} ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
