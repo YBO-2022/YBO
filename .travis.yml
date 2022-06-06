@@ -14,9 +14,6 @@ cache:
 services: 
   - docker
 
-branches:
-  only:
-    - main
 
 before_install: 
   - cd backend
@@ -31,9 +28,9 @@ before_install:
 script:
   # BUILD
   - ./gradlew build
+  - cd ../
 
 after_success:
-  - cd ../
   - docker build -t wngusrud27/docker-frontend ./frontend
   - docker build -t wngusrud27/docker-backend ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
@@ -44,5 +41,16 @@ after_success:
   - docker push wngusrud27/docker-backend 
   - docker push wngusrud27/docker-nginx 
 
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "ybo-phase1-app"
+  env: Ybophase1-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-895948757088 #생성이 안되어 기존에 있던 것을 이용하는 것으로 추측됨
+  bucket_path: "ybo-phase1-app"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key_id: $AWS_SECRET_ACCESS_KEY
 
 
