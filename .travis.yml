@@ -4,7 +4,12 @@ jdk: oraclejdk11
 
 sudo: required
 
-env: SPRING_PROFILES_ACTIVE=prod
+env: 
+  - SPRING_PROFILES_ACTIVE=prod
+  - RDS_URL=$RDS_URL_TRAVIS
+  - RDS_USER=$RDS_USER_TRAVIS
+  - RDS_PASSWORD=$RDS_PASSWORD_TRAVIS
+
 
 cache:
   directories:

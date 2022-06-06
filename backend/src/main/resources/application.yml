@@ -21,11 +21,16 @@ spring:
 
 ---
 
+
 spring:
   config:
     activate:
       on-profile: prod
-
+  datasource:
+    url: jdbc:mysql://${RDS_URL}:3306/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+    username: ${RDS_USER}
+    password: ${RDS_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: create # 개발이 진전된 다음 update로 수정
