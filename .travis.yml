@@ -27,7 +27,7 @@ before_install:
 
 script:
   # BUILD
-  - ./gradlew build
+  - ./gradlew build -Pprofile=prod
   - cd ../
 
 after_success:
