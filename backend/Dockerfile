@@ -16,6 +16,7 @@ WORKDIR ${WORKSPACE}
 
 # copy code & build
 COPY . .
+RUN chmod +x ./gradlew
 RUN ./gradlew clean bootJar
 
 # unpack jar

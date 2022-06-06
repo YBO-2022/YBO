@@ -10,7 +10,7 @@ branches:
     - main
 
 script:
-  - chmod +x gradlew
+
   - docker build -t wngusrud27/docker-frontend ./frontend
   - docker build -t wngusrud27/docker-backend ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
