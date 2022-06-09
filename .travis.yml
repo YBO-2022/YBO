@@ -4,10 +4,8 @@ jdk: oraclejdk11
 
 sudo: required
 
-# env: 
-#   - SPRING_DATASOURCE_URL=
-#  - SPRING_DATASOURCE_USERNAME=
-#  - SPRING_DATASOURCE_PASSWORD=
+env: 
+#  - SPRING_PROFILES_ACTIVE=prod
 
 cache:
   directories:
@@ -21,9 +19,6 @@ services:
 before_install: 
   - cd backend
   - chmod +x gradlew
-#  - export SPRING_DATASOURCE_URL=${DB_URL}
-#  - export SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
-#  - export SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
 
 script:
   # BUILD
@@ -52,5 +47,4 @@ deploy:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key_id: $AWS_SECRET_ACCESS_KEY
-
 
