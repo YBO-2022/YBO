@@ -21,9 +21,9 @@ services:
 before_install: 
   - cd backend
   - chmod +x gradlew
-  - export SPRING_DATASOURCE_URL='$DB_URL'
-  - export SPRING_DATASOURCE_USERNAME='$DB_USERNAME'
-  - export SPRING_DATASOURCE_PASSWORD='$DB_PASSWORD'
+  - export SPRING_DATASOURCE_URL=${DB_URL}
+  - export SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
+  - export SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
 
 script:
   # BUILD
