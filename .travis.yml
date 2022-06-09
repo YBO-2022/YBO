@@ -5,7 +5,7 @@ jdk: oraclejdk11
 sudo: required
 
 env: 
-#  - SPRING_PROFILES_ACTIVE=prod
+  - SPRING_PROFILES_ACTIVE=prod
 
 cache:
   directories:
