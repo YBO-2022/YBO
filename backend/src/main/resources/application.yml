@@ -17,7 +17,7 @@ decorator:
 
 spring:
   profiles:
-    active: prod
+    active: local
 
 ---
 
