@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios';
+import axios from './request';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
   const [value, setValue] = useState("")
 
   useEffect(()=>{
-    axios.get('/api/values')
+    axios.get('/values')
     .then(response=>{
       console.log('=====log====')
       console.log('response.data.data', response.data.data)
@@ -23,7 +23,7 @@ function App() {
 
   const submitHandler=(event)=>{
     event.preventDefault();
-    axios.post(`/api/value`, {value: value})
+    axios.post(`/value`, {value: value})
     .then(response=>{
        if (response.data.statusCode===200){
         console.log('response.data', response.data)

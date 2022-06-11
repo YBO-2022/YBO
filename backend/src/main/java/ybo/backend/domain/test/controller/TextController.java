@@ -20,11 +20,10 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-// @RequestMapping("/api")
 public class TextController {
     private final TextService textService;
 
-    @PostMapping("/api/value") // 수정
+    @PostMapping("/value")
     public DefaultResponse saveText(HttpServletRequest request, @RequestBody TextSaveRequestDto textSaveRequestDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new CustomIllegalArgumentException(GlobalErrorResponseMessage.ILLEGAL_ARGUMENT_ERROR, bindingResult);
@@ -34,7 +33,7 @@ public class TextController {
         return DefaultResponse.res(StatusCode.OK, TextResponseMessage.COMMENT_SAVE_SUCCESS, savedText);
     }
 
-    @GetMapping("/api/values")  // 수정 
+    @GetMapping("/values") 
     public DefaultResponse findAllTexts() {
         List<Text> texts = textService.findAll();
         return DefaultResponse.res(StatusCode.OK, TextResponseMessage.FIND_ALL_SUCCESS, texts);
