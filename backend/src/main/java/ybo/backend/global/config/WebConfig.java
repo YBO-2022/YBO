@@ -10,7 +10,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOriginPatterns("**");
-                //.allowedOrigins("http://localhost:3000", "http://Ybophase1-env.eba-xrkwqpmp.ap-northeast-2.elasticbeanstalk.com:3000");
+                .allowedOrigins("http://localhost:3000", "http://ybophase1-env.eba-xrkwqpmp.ap-northeast-2.elasticbeanstalk.com:80");
     }
 }
