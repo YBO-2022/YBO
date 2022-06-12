@@ -31,6 +31,7 @@ public class GlobalControllerAdvice {
         return new ErrorResponse(StatusCode.BAD_REQUEST, e.getMessage(), fieldErrorInfo);
     }
 
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ErrorResponse illegalExHandle(IllegalArgumentException e) {
         log.error("[ExceptionHandle] IllegalArgumentException: ", e);
@@ -49,7 +50,6 @@ public class GlobalControllerAdvice {
         return ErrorResponse.res(StatusCode.NOT_FOUND, GlobalErrorResponseMessage.REQUEST_URL_ERROR);
     }
 
-
     @ExceptionHandler
     public ErrorResponse exHandle(Exception e) {
         log.error("[ExceptionHandle] Exception: ", e);
@@ -60,7 +60,7 @@ public class GlobalControllerAdvice {
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ErrorResponse exHandle(MethodArgumentTypeMismatchException e) {
         log.error("[ExceptionHandle] Exception: ", e);
-        return new ErrorResponse(StatusCode.INTERNAL_SERVER_ERROR, GlobalErrorResponseMessage.ILLEGAL_TYPE_CONVERSION_ERROR);
+        return new ErrorResponse(StatusCode.BAD_REQUEST, GlobalErrorResponseMessage.ILLEGAL_TYPE_CONVERSION_ERROR);
     }
 
 

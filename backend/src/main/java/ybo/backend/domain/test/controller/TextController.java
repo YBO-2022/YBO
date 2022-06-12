@@ -15,6 +15,7 @@ import ybo.backend.global.response.DefaultResponse;
 import ybo.backend.global.response.StatusCode;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -24,16 +25,15 @@ public class TextController {
     private final TextService textService;
 
     @PostMapping("/value")
-    public DefaultResponse saveText(HttpServletRequest request, @RequestBody TextSaveRequestDto textSaveRequestDto, BindingResult bindingResult) {
+    public DefaultResponse saveText(@Valid @RequestBody TextSaveRequestDto textSaveRequestDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new CustomIllegalArgumentException(GlobalErrorResponseMessage.ILLEGAL_ARGUMENT_ERROR, bindingResult);
         }
-        System.out.println("request.getHeader(HttpHeaders.ORIGIN); = " + request.getHeader(HttpHeaders.ORIGIN));
         Text savedText = textService.save(textSaveRequestDto.createEntityByDto());
         return DefaultResponse.res(StatusCode.OK, TextResponseMessage.COMMENT_SAVE_SUCCESS, savedText);
     }
 
-    @GetMapping("/values") 
+    @GetMapping("/values")
     public DefaultResponse findAllTexts() {
         List<Text> texts = textService.findAll();
         return DefaultResponse.res(StatusCode.OK, TextResponseMessage.FIND_ALL_SUCCESS, texts);
