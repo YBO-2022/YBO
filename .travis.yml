@@ -4,6 +4,10 @@ jdk: oraclejdk11
 
 sudo: required
 
+branches:
+  only:
+    - main
+
 env: 
   - SPRING_PROFILES_ACTIVE=prod
 
