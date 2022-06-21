@@ -1,7 +1,5 @@
 FROM python:3.10-slim
 
-EXPOSE 5005
-
 COPY . /app
 
 RUN apt-get update < /dev/null
