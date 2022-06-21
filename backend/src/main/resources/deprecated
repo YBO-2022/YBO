@@ -1,6 +1,6 @@
 
 ## Server
-server.port=5000
+server.port=8088
 server.use-forward-headers=true
 
 ## Datasource
