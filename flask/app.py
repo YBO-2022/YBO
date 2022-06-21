@@ -119,6 +119,7 @@ def real_time_score():
   return {"message":message,"data":score_list}
 
 if __name__ == '__main__' :
-    app.run(debug=True)
+    print("run as main")
+    # app.run(host="0.0.0.0", port=5000)
 
 # python -m flask run

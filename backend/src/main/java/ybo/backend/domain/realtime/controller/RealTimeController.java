@@ -4,6 +4,7 @@ package ybo.backend.domain.realtime.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,9 +30,12 @@ public class RealTimeController {
     @Autowired
     RestTemplate restTemplate;
 
+    @Value("${flask.server.ip}")
+    private String flaskServerIp;
+
     @GetMapping("/realtime-ranking")
     public DefaultResponse saveText() {
-        DefaultResponse response = restTemplate.getForObject("http://127.0.0.1:5000/rank", DefaultResponse.class);
+        DefaultResponse response = restTemplate.getForObject("http://"+flaskServerIp+":5000"+"/rank", DefaultResponse.class);
         List<TeamRankDto> data = (List<TeamRankDto>) response.getData();
         return DefaultResponse.res(StatusCode.OK, RealTimeResponseMessage.REALTIME_RANKING_SEND_SUCCESS, data);
     }
