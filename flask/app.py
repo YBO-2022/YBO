@@ -49,16 +49,16 @@ def rank():
         Continuity = soup.select_one(f'#regularTeamRecordList_table > tr:nth-child({k}) > td:nth-child(9) > span').get_text()
         rank_dict = {"ranking":ranking, 
             "team": team,
-            "game":game, 
-            "win":win, 
-            "lose":lose,
-             "draw":draw,
-             "win_rate":winRate,
-             "game_diff":GameDiff,
-             "continuity":Continuity
-             }
+            "gameNumber":game,
+            "winNumber":win,
+            "loseNumber":lose,
+            "drawNumber":draw,
+            "winRate":winRate,
+            "gameDiff":GameDiff,
+            "continuity":Continuity
+        }
         rank_list.append(rank_dict)
-    return {"message":message,"score":rank_list}
+    return {"statusCode": 200, "message":message,"data":rank_list}
 
 def real_time_score():
       
