@@ -16,6 +16,9 @@ services:
       context: ./nginx
     ports: 
       - "3000:80"
+    depends_on:
+      - frontend
+      - backend
 
   backend:
     build: 
@@ -31,6 +34,12 @@ services:
       SPRING_DATASOURCE_PASSWORD: 1234
     depends_on:
       - mysql
+
+  flask:
+    build: 
+      dockerfile: Dockerfile
+      context: ./flask
+    container_name: app_flask
 
   mysql:
     build: ./mysql
