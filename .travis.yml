@@ -10,7 +10,8 @@ branches:
 
 env: 
   - SPRING_PROFILES_ACTIVE=prod
-  - FLASK_SERVER_IP=ybo_flask
+  - FLASK_SERVER_IP=tmp
+
 cache:
   directories:
   - .autoconf
