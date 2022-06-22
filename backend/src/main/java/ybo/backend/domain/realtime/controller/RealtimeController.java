@@ -55,6 +55,4 @@ public class RealtimeController {
         List<RealtimeGameDto> data = (List<RealtimeGameDto>) response.getData();
         return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_GAME_SEND_SUCCESS, data);
     }
-
-
 }
