@@ -14,19 +14,24 @@ app = Flask(__name__)
 
 app.config["JSON_AS_ASCII"] = False
 
-# client = MongoClient('localhost', 27017)
-# db = client.dbsparta
 
-@app.route('/game') # 접속하는 url
-def index():
-  data = real_time_score()
-  return jsonify(data)
+
 
 @app.route('/rank') # 접속하는 url
 def rank():
   data = rank()
   return jsonify(data)
 
+@app.route('/game') # 접속하는 url
+def index():
+  data = real_time_score()
+  return jsonify(data)
+
+
+@app.route('/game/monday') # 접속하는 url
+def index_moday():
+  data = real_time_score_monday()
+  return jsonify(data)
 
 def rank():
     rank_list =[]
@@ -69,7 +74,7 @@ def real_time_score():
   today = datetime.today().date()
   n= time.localtime().tm_wday
   score_list = []
-  if n==0 :
+  if n==0:
     message = str(today) + "는 월요일로 야구 경기가 없습니다"
     for i in range(1, 6):
       score={
@@ -84,7 +89,7 @@ def real_time_score():
         "rightPitcher" : None
        }
       score_list.append(score)
-    return {"message":message,"data":score_list}
+    return {"statusCode": 404, "message":message,"data":score_list}
   
   else :
       message = str(today) +"의 경기 진행 상황입니다"
@@ -116,7 +121,33 @@ def real_time_score():
             "rightPitcher" : right_pitcher
        }
         score_list.append(score)
-  return {"message":message,"data":score_list}
+  return {"statusCode": 200, "message":message,"data":score_list}
+
+
+def real_time_score_monday():
+    response = requests.get("https://sports.news.naver.com/kbaseball/schedule/index.nhn")
+    html = response.text
+    soup = BeautifulSoup(html, 'html.parser')
+
+    today = datetime.today().date()
+    n = time.localtime().tm_wday
+    score_list = []
+    message = str(today) + "는 월요일로 야구 경기가 없습니다"
+    for i in range(1, 6):
+        score = {
+            "id": i,
+            "gameState": None,
+            "leftTeam": None,
+            "rightTeam": None,
+            "leftScore": None,
+            "rightScore": None,
+            "state": None,
+            "leftPitcher": None,
+            "rightPitcher": None
+        }
+        score_list.append(score)
+    return {"statusCode": 404, "message": message, "data": score_list}
+
 
 if __name__ == '__main__' :
     print("run as main")
