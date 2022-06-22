@@ -1,6 +1,6 @@
 package ybo.backend.domain.realtime.dto;
 
-public class TeamRankDto {
+public class RealtimeTeamRankDto {
     private Integer ranking;
     private String team;
     private String gameNumber;
