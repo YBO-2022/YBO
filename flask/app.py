@@ -17,7 +17,7 @@ app.config["JSON_AS_ASCII"] = False
 # client = MongoClient('localhost', 27017)
 # db = client.dbsparta
 
-@app.route('/') # 접속하는 url
+@app.route('/game') # 접속하는 url
 def index():
   data = real_time_score()
   return jsonify(data)
@@ -74,14 +74,14 @@ def real_time_score():
     for i in range(1, 6):
       score={
         "id" : i,
-        "game_state" : None,
-        "left_team" : None,
-        "right_team" : None,
-        "left_score" :None,
-        "right_score" :None,
+        "gameState" : None,
+        "leftTeam" : None,
+        "rightTeam" : None,
+        "leftScore" :None,
+        "rightScore" :None,
         "state" : None,
-        "left_pitcher" : None,
-        "right_pitcher" : None
+        "leftPitcher" : None,
+        "rightPitcher" : None
        }
       score_list.append(score)
     return {"message":message,"data":score_list}
@@ -106,14 +106,14 @@ def real_time_score():
             game_state = "경기 중"
         score={
             "id" : i,
-            "game_state" : game_state,
-            "left_team" : left_team,
-            "right_team" : right_team,
-            "left_score" :left_score,
-            "right_score" :right_score,
+            "gameState" : game_state,
+            "leftTeam" : left_team,
+            "rightTeam" : right_team,
+            "leftScore" :left_score,
+            "rightScore" :right_score,
             "state" : state,
-            "left_pitcher" : left_pitcher,
-            "right_pitcher" : right_pitcher
+            "leftPitcher" : left_pitcher,
+            "rightPitcher" : right_pitcher
        }
         score_list.append(score)
   return {"message":message,"data":score_list}
