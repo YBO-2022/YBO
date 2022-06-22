@@ -28,7 +28,7 @@ def index():
 
 
 @app.route('/game/monday')  # 접속하는 url
-def index_moday():
+def index_monday():
     data = real_time_score(True)
     return jsonify(data)
 
@@ -77,20 +77,7 @@ def real_time_score(isMondayTest=False):
 
     if n == 0 or isMondayTest:
         message = str(today) + "는 월요일로 야구 경기가 없습니다"
-        for i in range(1, 6):
-            score = {
-                "id": i,
-                "gameState": None,
-                "leftTeam": None,
-                "rightTeam": None,
-                "leftScore": None,
-                "rightScore": None,
-                "state": None,
-                "leftPitcher": None,
-                "rightPitcher": None
-            }
-            score_list.append(score)
-        return {"statusCode": 404, "message": message, "data": score_list}
+        return {"statusCode": 404, "message": message, "data": None}
 
     message = str(today) + "의 경기 진행 상황입니다"
     for i in range(1, 6):
