@@ -35,8 +35,26 @@ public class RealtimeController {
     @GetMapping("/realtime-game")
     public DefaultResponse getRealtimeGame() {
         DefaultResponse response = restTemplate.getForObject(flaskServerUrl+"/game", DefaultResponse.class);
+        int flaskStatusCode = response.getStatusCode();
+        System.out.println("flaskStatusCode = " + flaskStatusCode);
+        if (flaskStatusCode==StatusCode.NOT_FOUND){
+            return DefaultResponse.res(StatusCode.NOT_FOUND, response.getMessage());
+        }
         List<RealtimeGameDto> data = (List<RealtimeGameDto>) response.getData();
         return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_GAME_SEND_SUCCESS, data);
     }
+
+    @GetMapping("/realtime-game/monday")
+    public DefaultResponse getRealtimeGameMonday() {
+        DefaultResponse response = restTemplate.getForObject(flaskServerUrl+"/game/monday", DefaultResponse.class);
+        int flaskStatusCode = response.getStatusCode();
+        System.out.println("flaskStatusCode = " + flaskStatusCode);
+        if (flaskStatusCode==StatusCode.NOT_FOUND){
+            return DefaultResponse.res(StatusCode.NOT_FOUND, response.getMessage());
+        }
+        List<RealtimeGameDto> data = (List<RealtimeGameDto>) response.getData();
+        return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_GAME_SEND_SUCCESS, data);
+    }
+
 
 }
