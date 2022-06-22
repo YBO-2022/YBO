@@ -47,7 +47,7 @@ public class RealtimeController {
         DefaultResponse response = restTemplate.getForObject(flaskServerUrl+apiUrl, DefaultResponse.class);
         int flaskStatusCode = response.getStatusCode();
         if (flaskStatusCode==StatusCode.NOT_FOUND){
-            return DefaultResponse.res(StatusCode.NOT_FOUND, response.getMessage());
+            return DefaultResponse.res(StatusCode.NO_CONTENT, response.getMessage());
         }
         List<RealtimeGameDto> data = (List<RealtimeGameDto>) response.getData();
         return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_GAME_SEND_SUCCESS, data);
