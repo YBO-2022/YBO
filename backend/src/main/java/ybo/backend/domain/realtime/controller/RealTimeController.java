@@ -30,12 +30,12 @@ public class RealTimeController {
     @Autowired
     RestTemplate restTemplate;
 
-    @Value("${flask.server.ip}")
-    private String flaskServerIp;
+    @Value("${flask.server.url}")
+    private String flaskServerUrl;
 
     @GetMapping("/realtime-ranking")
     public DefaultResponse saveText() {
-        DefaultResponse response = restTemplate.getForObject("http://"+flaskServerIp+":5000"+"/rank", DefaultResponse.class);
+        DefaultResponse response = restTemplate.getForObject(flaskServerUrl+"/rank", DefaultResponse.class);
         List<TeamRankDto> data = (List<TeamRankDto>) response.getData();
         return DefaultResponse.res(StatusCode.OK, RealTimeResponseMessage.REALTIME_RANKING_SEND_SUCCESS, data);
     }
