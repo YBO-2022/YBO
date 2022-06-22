@@ -2,7 +2,7 @@ version: '3'
 services:
   frontend: 
     build: 
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./frontend
     volumes:
       - /app/node_modules
@@ -16,26 +16,39 @@ services:
       context: ./nginx
     ports: 
       - "3000:80"
+    depends_on:
+      - frontend
+      - backend
 
   backend:
     build: 
       dockerfile: Dockerfile
       context: ./backend
-    container_name: app_backend
+    container_name: ybo_backend
     volumes: 
       - ./backend:/app
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      SPRING_DATASOURCE_URL: jdbc:mysql://172.18.0.1:3307/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+      SPRING_DATASOURCE_URL: jdbc:mysql://ybo_mysql:3306/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 1234
+      FLASK_SERVER_IP: ybo_flask
     depends_on:
       - mysql
+      - flask
+
+  flask:
+    build: 
+      dockerfile: Dockerfile
+      context: ./flask
+    ports: 
+      - "5000:5000"
+    container_name: ybo_flask
 
   mysql:
     build: ./mysql
     restart: unless-stopped
-    container_name: app_mysql
+    container_name: ybo_mysql
     ports:
     - "3307:3306"
     volumes: 
@@ -46,4 +59,4 @@ services:
       MYSQL_DATABASE: ybo_db
 
 
-# 실행: docker-compose -f docker-compose-local.yml up 
+# 실행: docker-compose -f docker-compose-local.yml up --build

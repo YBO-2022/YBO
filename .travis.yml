@@ -8,9 +8,6 @@ branches:
   only:
     - main
 
-env: 
-  - SPRING_PROFILES_ACTIVE=prod
-
 cache:
   directories:
   - .autoconf
@@ -21,6 +18,8 @@ services:
 
 
 before_install: 
+  - export SPRING_PROFILES_ACTIVE=prod
+  - export FLASK_SERVER_IP=tmp
   - cd backend
   - chmod +x gradlew
 
@@ -33,12 +32,14 @@ after_success:
   - docker build -t wngusrud27/docker-frontend ./frontend
   - docker build -t wngusrud27/docker-backend ./backend
   - docker build -t wngusrud27/docker-nginx ./nginx
+  - docker build -t wngusrud27/docker-flask ./flask
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
   - docker push wngusrud27/docker-frontend 
   - docker push wngusrud27/docker-backend 
   - docker push wngusrud27/docker-nginx 
+  - docker push wngusrud27/docker-flask 
 
 deploy:
   provider: elasticbeanstalk
@@ -51,4 +52,3 @@ deploy:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key_id: $AWS_SECRET_ACCESS_KEY
-

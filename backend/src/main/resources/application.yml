@@ -1,5 +1,5 @@
 server:
-  port: '5000'
+  port: '8088'
   use-forward-headers: true
 
 logging:
@@ -20,6 +20,15 @@ spring:
     active: local
   mvc:
     throw-exception-if-no-handler-found: true
+
+restTemplate:
+  factory:
+    readTimeout: 5000
+    connectTimeout: 3000
+  httpClient:
+    maxConnTotal: 100
+    maxConnPerRoute: 5
+
 ---
 
 spring:
