@@ -7,6 +7,7 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 import os
+import pymysql
 from dotenv import load_dotenv
 
 # 환경 변수 설정
