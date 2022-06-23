@@ -17,7 +17,7 @@ decorator:
 
 spring:
   profiles:
-    active: local
+    active: test
   mvc:
     throw-exception-if-no-handler-found: true
 
@@ -46,6 +46,26 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
     show-sql: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: ${DB_URL}
+    username: root
+    password: 12341234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+
+flask:
+  server:
+    ip: 127.0.0.1
 
 ---
 spring:
