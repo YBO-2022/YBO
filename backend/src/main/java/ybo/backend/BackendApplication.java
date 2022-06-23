@@ -24,20 +24,20 @@ public class BackendApplication {
 		ApplicationContext context = SpringApplication.run(BackendApplication.class, args);
 		Test test = context.getBean(Test.class);
 		test.say();
-		test.crawling();
+		test.realtimeCrawling();
 	}
 
 	@Component
 	class Test {
 		@Value("${spring.profiles.active}")
 		private String active;
-		public void say() {
+		private void say() {
 			System.out.println("*************************");
 			System.out.println("active: " + active);
 			System.out.println("*************************");
 		}
-		public void crawling(){
-			restTemplate.getForObject(flaskServerUrl+"/rank", DefaultResponse.class);
+		private void realtimeCrawling(){
+			restTemplate.getForObject(flaskServerUrl+"/ranking", DefaultResponse.class);
 			restTemplate.getForObject(flaskServerUrl+"/game", DefaultResponse.class);
 		}
 	}
