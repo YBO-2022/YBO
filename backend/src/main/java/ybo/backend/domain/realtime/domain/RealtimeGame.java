@@ -18,6 +18,7 @@ public class RealtimeGame {
     @Id @GeneratedValue
     @Column(name = "realtime_game_id")
     private Integer id;
+    private String gameState;
     private String leftTeam;
     private String rightTeam;
     private String leftScore;
