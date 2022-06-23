@@ -33,7 +33,7 @@ public class BackendApplication {
 		private String active;
 		private void say() {
 			System.out.println("*************************");
-			System.out.println("active: " + active);
+			System.out.println("active: " + active );
 			System.out.println("*************************");
 		}
 		private void realtimeCrawling(){
