@@ -140,17 +140,49 @@ def real_time_score(isMondayTest=False):
         else:
             game_state = "경기 중"
         score = {
-            "id": i,
-            "gameState": game_state,
-            "leftTeam": left_team,
-            "rightTeam": right_team,
-            "leftScore": left_score,
-            "rightScore": right_score,
+            "game_state": game_state,
+            "left_team": left_team,
+            "right_team": right_team,
+            "left_score": left_score,
+            "right_score": right_score,
             "state": state,
-            "leftPitcher": left_pitcher,
-            "rightPitcher": right_pitcher
+            "left_pitcher": left_pitcher,
+            "right_pitcher": right_pitcher
         }
         score_list.append(score)
+    df = pd.DataFrame(score_list)
+    df['realtime_game_id'] = df.index
+
+    # DB 접속 엔진 객체 생성
+    engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}:{port}/{database}', encoding='utf-8')
+
+    # DB 테이블 명
+    table_name = "realtime_game"
+
+    dtypesql = {'realtime_game_id': sqlalchemy.types.Integer,
+                'game_state': sqlalchemy.types.VARCHAR(255),
+                'left_team': sqlalchemy.types.VARCHAR(255),
+                'right_team': sqlalchemy.types.VARCHAR(255),
+                'left_score': sqlalchemy.types.VARCHAR(255),
+                'right_score': sqlalchemy.types.VARCHAR(255),
+                'draw_number': sqlalchemy.types.VARCHAR(255),
+                'state': sqlalchemy.types.VARCHAR(255),
+                'left_pitcher': sqlalchemy.types.VARCHAR(255),
+                'right_pitcher': sqlalchemy.types.VARCHAR(255)
+                }
+
+    # DB에 DataFrame 적재
+    df.to_sql(index=False,
+              name=table_name,
+              con=engine,
+              if_exists='replace',
+              method='multi',
+              chunksize=10000,
+              dtype=dtypesql)
+
+    with engine.connect() as con:
+        con.execute('ALTER TABLE `realtime_game` ADD PRIMARY KEY (`realtime_game_id`);')
+
     return {"statusCode": 200, "message": message, "data": score_list}
 
 
