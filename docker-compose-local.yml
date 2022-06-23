@@ -44,6 +44,10 @@ services:
     ports: 
       - "5000:5000"
     container_name: ybo_flask
+    environment:
+      DB_HOST: ybo_mysql
+      DB_USERNAME: root
+      DB_PASSWORD: 1234
 
   mysql:
     build: ./mysql
