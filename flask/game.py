@@ -45,7 +45,7 @@ def realtime_game():
             left_score = " "
             right_score = " "
         elif ":" in state:
-            game_state = "시작 전"
+            game_state = " 시작 전"
             left_score = " "
             right_score = " "
         elif state == "종료":
@@ -53,7 +53,7 @@ def realtime_game():
             left_score = soup.select_one(f'#todaySchedule > li:nth-child({i}) > div.vs_lft > strong').get_text()
             right_score = soup.select_one(f'#todaySchedule > li:nth-child({i}) > div.vs_rgt > strong').get_text()
         else:
-            game_state = "경기 중"
+            game_state = " 경기 중"
             left_score = soup.select_one(f'#todaySchedule > li:nth-child({i}) > div.vs_lft > strong').get_text()
             right_score = soup.select_one(f'#todaySchedule > li:nth-child({i}) > div.vs_rgt > strong').get_text()
 
