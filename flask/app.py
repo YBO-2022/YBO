@@ -9,14 +9,13 @@ from sqlalchemy import create_engine
 import os
 from dotenv import load_dotenv
 
+# 환경 변수 설정
 load_dotenv()
 user = os.getenv('DB_USERNAME')
 password = os.getenv('DB_PASSWORD')
 host = os.getenv('DB_HOST')
 port = 3306
 database = "ybo_db"
-
-
 
 # Flask 객체 인스턴스 생성
 print(f"__name__: {__name__}")
@@ -25,19 +24,19 @@ app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
 
 
-@app.route('/rank')  # 접속하는 url
+@app.route('/rank')
 def rank():
     data = rank()
     return jsonify(data)
 
 
-@app.route('/game')  # 접속하는 url
+@app.route('/game')
 def index():
     data = real_time_score()
     return jsonify(data)
 
 
-@app.route('/game/monday')  # 접속하는 url
+@app.route('/game/monday')
 def index_monday():
     data = real_time_score(True)
     return jsonify(data)
