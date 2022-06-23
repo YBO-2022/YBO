@@ -38,6 +38,7 @@ public class BackendApplication {
 		}
 		public void crawling(){
 			restTemplate.getForObject(flaskServerUrl+"/rank", DefaultResponse.class);
+			restTemplate.getForObject(flaskServerUrl+"/game", DefaultResponse.class);
 		}
 	}
 }
