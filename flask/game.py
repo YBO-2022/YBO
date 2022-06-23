@@ -21,6 +21,7 @@ database = "ybo_db"
 
 
 def realtime_game():
+    print("host:", host)
     response = requests.get("https://sports.news.naver.com/kbaseball/schedule/index.nhn")
     html = response.text
     soup = BeautifulSoup(html, 'html.parser')
