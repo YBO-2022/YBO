@@ -16,6 +16,10 @@ import ybo.backend.domain.realtime.service.RealtimeRankingService;
 import ybo.backend.global.response.DefaultResponse;
 import ybo.backend.global.response.StatusCode;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +32,9 @@ public class RealtimeGameController {
 
     @GetMapping("/realtime-game")
     public DefaultResponse findAllGames() {
+        if (isTodayMonday()==true){
+            return DefaultResponse.res(StatusCode.NO_CONTENT, RealtimeResponseMessage.REALTIME_GAME_MONDAY, "안녕!");
+        }
         List<RealtimeGame> games = realtimeGameService.findAll();
         List<RealtimeGameDto> gameDtos = games.stream()
                 .map(g -> RealtimeGameDto.createDto(g))
@@ -35,4 +42,16 @@ public class RealtimeGameController {
         return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_RANKING_SEND_SUCCESS, gameDtos);
     }
 
+    private boolean isTodayMonday(){
+        ZoneId zoneId = ZoneId.of("Asia/Seoul");
+        LocalDate date = LocalDate.now(zoneId);
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        return DayOfWeek.MONDAY==dayOfWeek;
+    }
+
+    // 테스트용
+    @GetMapping("/realtime-game/monday")
+    public DefaultResponse testMonday() {
+        return DefaultResponse.res(StatusCode.NO_CONTENT, RealtimeResponseMessage.REALTIME_GAME_MONDAY, "안녕!");
+    }
 }
