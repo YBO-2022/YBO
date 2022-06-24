@@ -1,0 +1,55 @@
+.sidebar {
+    display: inline-grid;
+    height: 90vh;
+    width: 230px;
+    background-color: white;
+}
+
+.sidebar-item-active {
+    color: white;
+    font-size: medium;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 650; 
+    text-align: center;
+    background-color: #3C64B1;
+}
+
+.sidebar-item {
+    color: black;
+    font-size: medium;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 650; 
+    text-align: center;
+    background-color: #EBEFF7
+}
+
+.sideBarTeam{
+    margin-left: 22px;
+    font-size: 2vh;
+    color: black;
+    font-weight: bold;
+    float: left;
+}
+
+.sideBarTeam:hover{
+    color: #22753b;
+}
+
+
+.sidebarlogo{
+    margin-right: 10px;
+}
+
+.sidebar_title {
+    margin: 0;
+    margin-left: 1.5vw;
+    height: 3vh;
+    margin-top: 7vh;
+}
+
+.sidebar_logo_container {
+    float: left;
+    margin-left: 0
+}

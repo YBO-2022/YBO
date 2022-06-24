@@ -1,0 +1,43 @@
+.Player_Main_Title {
+    text-align: center;
+    margin-top: 120px;
+    height: 200px;
+    padding: auto;
+}
+
+.Big_Title {
+    font-size: 40px;
+}
+
+.Small_Content {
+    font-size: 20px;
+    color: gray;
+}
+
+.Service_List {
+    margin-top: 20px;
+    text-align: center;
+    width: 20vw;
+    float: left;
+    margin-left: 85px; 
+}
+
+.Service_Img {
+    width: 5vh;
+}
+
+.Service_Name{
+   font-size: 3vh;
+   font-weight: bold;
+   color: black;
+}
+
+.Service_Info {
+   font-size: 2vh;
+   color: black;
+}
+
+.service_container {
+    height: 20vh;
+    padding-left: 10vw;
+}

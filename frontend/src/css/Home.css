@@ -1,0 +1,205 @@
+body {
+  margin: 0 0; 
+}
+   
+.intro {
+    background-color: #EBEFF7;
+    height: 100vh;
+}
+
+.logoArea{
+    width: 300px;
+    height: 40px;
+    /*background-color: green;*/
+    margin-top: 24px;
+    text-align: center;
+    line-height: 1;
+    font-weight: 700;
+    color: #3C64B1;
+    font-size: 23px;
+    padding-left: 70px;
+  }
+
+
+.intro_text_top > h1 {
+  color: black;
+  font-size: 45px;
+}
+
+.intro_text_top > h4 {
+  margin-top: 15px;
+  color: gray;
+  font-size: 2vh;
+}
+  
+.intro_text > h1 {
+    color: black;
+    font-size: 5vh;
+  }
+  
+.intro_text > h4 {
+    margin-top: 15px;
+    color: gray;
+    font-size: 2.5vh;
+  }
+  
+.trial {
+    margin-top: 100px;
+    background-color: #3C64B1;
+    color: white;
+    width: 125px;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 0;
+    outline: 0;
+  }
+
+.intro2 {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+.intro2_text {
+    margin: auto;
+    text-align: center;
+    line-height: 5px;
+    /*background-color: red;*/
+    color: black;
+    font-size: 35px;
+    padding: 100px;
+    padding-top: 70px;
+  }
+  
+.service {
+    display: flex;
+    width: 100%;
+    /*background-color: green;*/
+    height: 220px;
+    list-style: none;
+    padding-left:0px;
+  }
+  
+.service1 > li, .service2 > li{
+    flex: 1;
+    /*background-color: blue;*/
+    text-align: center;
+  }
+  
+.subtitle1, .subtitle2, .subtitle3, .subtitle4, .subtitle5, .subtitle6{
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+.content1, .content2, .content3, .content4,.content5,.content6 {
+    font-size: small;
+  }
+
+  /*<div className="icon6"><img src="" width={40} height={40} alt=""/></div>*/
+
+  .teamselect{
+    height: 40px;
+    width: 90px;
+    margin-bottom: 2px;
+    margin-right :1px ;
+    color: white;
+    background-color: #305babd4;
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .teamselect:hover{
+    background-color: #153670eb;
+  }
+
+.teamcontainer{
+  width: 480px;
+
+}
+
+.MainPageGraph {
+  float: right;
+  width: 40vw;
+  height: 60vh;
+  float: left;
+  margin-top: 20vh;
+  margin-left: 9vw;
+}
+
+.intro_text {
+  width: 30vw;
+  height: 70vh;
+  margin-top: 30vh;
+  margin-left: 8vw;
+  float: left;
+}
+
+
+.to_team {
+    height: 7vh;
+    width: 10vw;
+    margin-bottom: 0.2vh;
+    margin-right :0.2vw ;
+    color: white;
+    background-color: #3C64B1;
+    font-size: 2.3vh;
+    border: none;
+    margin-top: 6vh;
+    border-radius: 5px;
+}
+
+.to_player {
+    height: 7vh;
+    width: 10vw;
+    margin-bottom: 0.2vh;
+    margin-right :0.2vw ;
+    color: white;
+    background-color: #3C64B1;
+    font-size: 2.3vh;
+    border: none;
+    margin-left: 2vw;
+    margin-top: 6vh;
+    border-radius: 5px;
+}
+
+.Home_Ranking {
+  display: inline-block;
+  margin-left: 45vw;
+  margin-top: -56vh;
+  width: 0.1vw;
+}
+
+.intro_text_top {
+  width: 40vw;
+  height: 70vh;
+  margin-top: 12vh;
+  margin-left: 8vw;
+  display: inline-block;
+}
+
+.Home_Table{
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+.Home_Table_Title{
+  vertical-align: middle;
+}
+
+.Home_Player_Ranking_Table {
+  background-color: white; 
+  margin-left:auto; 
+  margin-right:auto; 
+  border-Radius: 10px 10px;
+  width: 70vw;
+  height: 30vh; 
+  padding-top: 5px;
+  display: block;
+}
+
+.intro_Container{
+  width: 100%;
+  height: 100vh;
+}

@@ -1,64 +1,28 @@
-import React, {useState, useEffect} from 'react'
-import axios from './request';
-import logo from './logo.svg';
 import './App.css';
+import Home from "./Components/Home";
+import MainPlayer from "./Components/MainPlayer";
+import Player from "./Components/Player";
+import MainTeam from "./Components/MainTeam";
+import GoldenGlove from "./Components/GoldenGlove";
+import Team from "./Components/Team";
+import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
 
-  const [lists, setLists] = useState([])
-  const [value, setValue] = useState("")
-
-  useEffect(()=>{
-    axios.get('/values')
-    .then(response=>{
-      console.log('=====log====')
-      console.log('response.data.data', response.data.data)
-      setLists(response.data.data)
-    })
-  }, [])
-
-  const changeHandler=(event)=>{
-    setValue(event.currentTarget.value)
-  }
-
-  const submitHandler=(event)=>{
-    event.preventDefault();
-    axios.post(`/value`, {value: value})
-    .then(response=>{
-       if (response.data.statusCode===200){
-        console.log('response.data', response.data)
-        setLists([...lists, response.data.data])
-        setValue("");
-      }
-      else{
-        alert("값을 DB에 넣는데 실패했습니다.")
-      }
-    })
-  }
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="container">
-          {lists && lists.map((list, index)=>(
-            <li key={index}>{list.value}</li>
-          ))}
-          <br/>
-          <form className="example" onSubmit={submitHandler}>
-            <input
-              type="text"
-              placeholder="입력해주세요..."
-              onChange={changeHandler}
-              value={value}
-            />
-            <button type="submit">확인</button>
-          </form>
-        </div>
-      </header>
+      <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/MainPlayer/*" element={<MainPlayer/>}/>
+      <Route path="/Player/*" element={<Player/>}/>
+      <Route path="/Team/*" element={<Team/>}/>
+      <Route path="/MainTeam/*" element={<MainTeam/>}/>
+      <Route path="/GoldenGlove" element={<GoldenGlove/>}/>
+      <Route path="*" element={"Not Found"}/>
+      </Routes>
     </div>
   );
 }
-
 
 export default App;

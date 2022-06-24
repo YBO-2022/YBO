@@ -1,0 +1,51 @@
+.player_title {
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.player_info {
+
+    margin-left: 8vw;
+}
+
+.other_player {
+    height: 3vh;
+    color: black;
+    border-bottom: 2px solid black;
+    position: relative;
+    top: 15px;
+}
+
+.Player_Table_Title{
+    background-color: rgba(196, 196, 196, 0.288);
+    font-size: 20px;
+    padding: 1.5vh;
+    font-weight: bold;
+}
+
+thead th:nth-child(1){
+    border-radius: 10px 0px  0px 0px;
+} 
+
+thead th:nth-last-child(1){
+    border-radius: 0px 10px  0px 0px;
+} 
+
+
+.Player_Table_Content{
+    font-weight: bold;
+}
+
+tbody tr:nth-child(2n) {
+    background-color: #97bbfd3e;
+  }
+
+tbody tr:nth-last-child(1) td:nth-child(1){
+    border-radius: 0px 0px 0px 10px;
+}
+
+tbody tr:nth-last-child(1) td:nth-last-child(1){
+    border-radius: 0px 0px 10px 0px;
+}
