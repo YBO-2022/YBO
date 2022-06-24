@@ -26,7 +26,7 @@ function RankingPrediction() {
 
   ,[]);
 
-  const table_title = ["순위","팀"]
+  const table_title = ["순위","팀","승률"]
 
   if (Loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
@@ -34,7 +34,7 @@ function RankingPrediction() {
 
   return (
     <div>
-        { <table style={{backgroundColor: "white", marginlLeft:"30vw", marginRight:"auto", borderRadius: "10px 10px 10px 10px", width: "200px",height: "72vh", paddingTop: "5px"}}>
+        { <table style={{backgroundColor: "white", marginlLeft:"30vw", marginRight:"auto", borderRadius: "10px 10px 10px 10px", width: "400px",height: "72vh", paddingTop: "5px"}}>
            {table_title.map((title)=>(
                <th className="Prediction_Table_Title" style={{verticalAlign:"middle"}}>{title}</th>
            ))}
@@ -42,6 +42,8 @@ function RankingPrediction() {
                <tr className="Prediction_Table_Content" style={{textAlign: "center"}}>
                    <td>{rank.ranking}</td>
                    <td>{rank.team}</td>
+                   <td>{rank.winRate}</td>
+
                </tr> 
             ))}
         </table> }
