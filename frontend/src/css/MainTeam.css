@@ -1,0 +1,36 @@
+.mainteam {
+    display: inline-block;
+    background: linear-gradient(180deg, #1E50CB 0%, rgba(32, 65, 149, 0) 100%);
+    width: 100vw;
+    height: 85vh;
+}
+
+.mainteam_title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 3vh;
+    text-align: center;
+    color: white;
+}
+
+.mainteam_ranking {
+    width: 600px;
+    height: 20px;
+    margin-top: 3vh;
+    margin-left: 7vw;
+    float: left;
+}
+
+.mainteam_sidebar {
+    float: left;
+}
+
+.mainteam_ranking_prediction {
+    width: 100px;
+    height: 20px;
+    margin-top: -2.6vh;
+    margin-left: 60vw;
+    float: left;
+    background-color: white;
+    border-radius: 10px;
+}

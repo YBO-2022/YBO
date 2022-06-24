@@ -1,0 +1,101 @@
+.Live_Page {
+    background-color: white;
+    height: 100vh;
+}
+
+.Live_Container {
+    height: 80vh;
+    text-align: center;
+    width: 40vw;
+    margin: auto;
+    margin-top: 8vh;
+}
+
+.Date {
+    font-size: 2.5vh;
+    color: #3C64B1;
+    padding-top: 2vh;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.Date:after {
+    content: "";
+    display: block;
+    margin-left: 20px;
+    margin-right: 6px;
+    width: 37vw;
+    border-bottom: 2px solid #3C64B1;
+    padding-top: 1vh;
+  }
+
+.Live_table {
+    background-color: #EBEFF7;
+    height: 70vh;
+    box-shadow: 0 5px 5px -5px #333;
+    border-radius: 3px 3px;
+}
+
+.Live_Each {
+    margin-top: 1vh;
+    height: 10vh;
+    margin-bottom: 2vh;
+}
+
+.Left_Team {
+    float: left;
+    margin-left: 2.2vw;
+    height: 8vh;
+    font-weight: bold;
+    width: 10vw;
+    padding-top: 0.5vh;
+}
+
+.Right_Team {
+    float: left;
+    height: 8vh;
+    font-weight: bold;
+    width: 10vw;
+    padding-top: 0.5vh;
+}
+
+.Score_Total {
+    float: left;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 1vh;
+}
+
+.Score {
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.Live_Content {
+    float: left;
+    background-color: white;
+    height: 10vh;
+    width: 38vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    box-shadow: 0 5px 5px -5px #333;
+    border-radius: 2px 2px;
+}
+
+.monday {
+    font-weight: bold;
+    font-size: large;
+    height: 4vh;
+    margin-top: 24vh;
+}
+
+.monday_box {
+    background-color: white;
+    height: 10vh;
+    text-align: center;
+    line-height: 70px;
+    box-shadow: 0 5px 5px -5px #333;
+    border-radius: 2px 2px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
