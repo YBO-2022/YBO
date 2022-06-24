@@ -32,7 +32,6 @@ function Player() {
             setLoading(false)
             const Url = "/players/" + Player_Arr_[id]
             const response = await axios.get(Url);
-            console.log(Url)
             setGame(response.data.data);
         } catch(e){
         

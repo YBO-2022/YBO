@@ -20,11 +20,12 @@ function Nav() {
     return (
         <div className = "navheader">
         <div className="navlogo">
+              <NavLink to={"/"}>
               <div>
                 <img className="nav_logo"  src={logo}  alt="logo"/>
               </div>
               <div className="navcomment" style={{fontFamily:"Vitro_core"}}>YBO</div>
-
+              </NavLink>
         </div>
         <div className="nav">
             {Menu.map((menu, index) => {
