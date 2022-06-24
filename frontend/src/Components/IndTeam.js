@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Team.css";
 import SideBar from "./sidebar";
+import War from "./War";
 import win from "../img/트로피.png";
 import top from "../img/최고.png"
 import worst from "../img/최저.png"
@@ -8,22 +9,22 @@ import now from "../img/현재순위.png"
 import "../font/font.css";
 
 function IndTeam(props) {
-
+  const id = Number(props.id);
   const Team_Arr = ["KIA","롯데","삼성","두산","LG","SSG","한화","키움","NC","kt" ]
   function wordcloud(){
-    const imgURL = require("../img/WC/" + Team_Arr[Number(props.id)] + ".png")
+    const imgURL = require("../img/WC/" + Team_Arr[id] + ".png")
     return(
       <>
-      <img src={imgURL} style={{width:"445px", height:"430px"}}alt={Team_Arr[Number(props.id)]}/>
+      <img src={imgURL} style={{width:"445px", height:"430px"}}alt={Team_Arr[id]}/>
       </>
     );
   }
 
   function mention(){
-    const imgURL = require("../img/그래프/" + Team_Arr[Number(props.id)] + ".png")
+    const imgURL = require("../img/그래프/" + Team_Arr[id] + ".png")
     return(
       <>
-      <img src={imgURL} alt={Team_Arr[Number(props.id)]} style={{width:"70vw", marginLeft:"7vw"}}/>
+      <img src={imgURL} alt={Team_Arr[id]} style={{width:"70vw", marginLeft:"7vw"}}/>
       </>
     );
   }
@@ -89,6 +90,9 @@ function IndTeam(props) {
       <div className="wordcloud_container">
         {wordcloud()}
       </div>
+      <War id="0" team_id={id}/>
+      <War id="1" team_id={id}/>
+
     </div>
   );
 }
