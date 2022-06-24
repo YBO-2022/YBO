@@ -59,7 +59,8 @@ function GGRanking(props) {
                         <td>{data.name}</td>
                         <td>{data.team}</td>
                        </tr> 
-               ))} </>
+               ))}
+ </>
             )
         } else {
             return(
