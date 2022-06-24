@@ -1,0 +1,16 @@
+.war_title {
+    background-color:"red"; 
+    float:left; 
+    margin-left:25vw;
+
+}
+
+.war_table {
+    float: left; 
+    background-color: white;
+    border-radius: 10px; 
+    width: 420px;
+    height: 60vh; 
+    padding-top: 5px; 
+    margin-top:5vh;
+}

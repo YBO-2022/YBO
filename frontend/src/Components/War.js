@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from '../request';
+import "../css/War.css";
 
 function War(props) {
 
@@ -41,12 +42,12 @@ console.log(Data)
 
 return (
     <div>
-        <span>{titles[id]}</span>
-        <table>
-        {table_titles.map((title)=><th>{title}</th>)}
+        <span className="war_title" >{titles[id]}</span>
+        <table className="war_table">
+        {table_titles.map((title)=><th style={{verticalAlign:"middle"}}>{title}</th>)}
   
             {Data.map((dt,idx)=>
-                  <tr>
+                  <tr style={{textAlign: "center"}}>
             <td>{idx+1}</td>
             <td>{dt.name}</td>
             <td>{dt.war}</td>
