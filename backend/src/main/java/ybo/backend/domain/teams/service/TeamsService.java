@@ -3,8 +3,8 @@ package ybo.backend.domain.teams.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ybo.backend.domain.teams.domain.WarList;
-import ybo.backend.domain.teams.repository.WarRepository;
+import ybo.backend.domain.teams.domain.*;
+import ybo.backend.domain.teams.repository.*;
 
 import java.util.List;
 
@@ -13,7 +13,32 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeamsService {
 
+    private final FirstTeamRepository firstTeamRepository;
+    private final RankingHistoryRepository rankingHistoryRepository;
     private final WarRepository warRepository;
+    private final RankPredictRepository rankPredictRepository;
+    private final VictoryNumRepository victoryNum;
+    private final SeasonHighLowRepository seasonHighLowRepository;
+
+    @Transactional
+    public List<RankPredict> findRankPredict() {
+        return rankPredictRepository.findAll();
+    }
+
+    @Transactional
+    public VictoryNum findVictoryNum(String team) {
+        return victoryNum.findByTeam(team);
+    }
+
+    @Transactional
+    public SeasonHighLow findSeasonHighLow(String team) {
+        return seasonHighLowRepository.findByTeam(team);
+    }
+
+    @Transactional
+    public FirstTeam findFirstTeam(String team) {
+        return firstTeamRepository.findByTeam(team);
+    }
 
     @Transactional
     public List<WarList> findTop5War(String team) {
@@ -23,6 +48,11 @@ public class TeamsService {
     @Transactional
     public List<WarList> findLow5War(String team) {
         return warRepository.findLow5War(team);
+    }
+
+    @Transactional
+    public List<RankingHistory> findRankingHistory(String team) {
+        return rankingHistoryRepository.findByTeam(team);
     }
 
     public String findTeamName(Integer teamId) {

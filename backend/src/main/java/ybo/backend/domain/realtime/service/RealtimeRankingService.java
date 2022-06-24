@@ -17,4 +17,8 @@ public class RealtimeRankingService {
     public List<RealtimeRanking> findAll(){
         return realtimeRankingRepository.findAll();
     }
+
+    public RealtimeRanking findByTeam(String team) {
+        return realtimeRankingRepository.findByTeam(team);
+    }
 }
