@@ -57,7 +57,7 @@ function content(id){
     return(<>
     {game.map((rank,idx)=>(
          <tr style={{textAlign: "center", verticalAlign: "middle", lineHeight:"300%", fontSize:"18px"}}>
-          <td className="Player_Table_Content">{idx}</td>
+          <td className="Player_Table_Content">{idx+1}</td>
           <td className="Player_Table_Content">{rank.name}</td>
           <td className="Player_Table_Content">{rank.team}</td>
           <td className="Player_Table_Content">{rank.ops}</td>
@@ -78,7 +78,7 @@ function content(id){
       <>
       {game.map((rank,idx)=>(
        <tr style={{textAlign: "center", verticalAlign: "middle", lineHeight:"300%", fontSize:"18px"}}>
-       <td className="Player_Table_Content">{idx}</td>
+       <td className="Player_Table_Content">{idx+1}</td>
        <td className="Player_Table_Content">{rank.name}</td>
        <td className="Player_Table_Content">{rank.team}</td>
        <td className="Player_Table_Content">{rank.era}</td>
