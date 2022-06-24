@@ -4,6 +4,7 @@ import axios from '../request';
 function War(props) {
 
     const id = Number(props.id);
+    const team_id = Number(props.team_id);
     const titles =["WAR TOP 5","WAR WORST 5"]
     const table_titles =["순위","이름","WAR" ]
   
@@ -31,7 +32,7 @@ function War(props) {
         fetchTeam()
     }
   
-    ,[]);
+    ,[team_id]);
   
     if (Loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
