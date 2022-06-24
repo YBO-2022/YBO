@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import axios from '../request';
 import "../css/War.css";
+import "../font/font.css";
+
 
 function War(props) {
 
@@ -43,20 +45,18 @@ console.log(Data)
 
 return (
     <div>
-        <span className="war_title" >{titles[id]}</span>
+         <span className="war_title" style={{fontFamily:"MICEGothic Bold"}}>{titles[id]}</span>
         <table className="war_table">
-        {table_titles.map((title)=><th style={{verticalAlign:"middle"}}>{title}</th>)}
+        {table_titles.map((title)=><th style={{verticalAlign:"middle", borderBottom:"2px solid gray",paddingBottom:"0.8vh", fontSize:"17px", fontWeight:"bold"}}>{title}</th>)}
   
             {Data.map((dt,idx)=>
-                  <tr style={{textAlign: "center"}}>
+                  <tr style={{textAlign: "center", fontWeight:"bold"}}>
             <td>{idx+1}</td>
             <td>{dt.name}</td>
             <td>{dt.war}</td>
 
             </tr>
             )}
-        
-
         </table>
     </div>
   );

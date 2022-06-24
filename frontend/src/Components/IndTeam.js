@@ -15,7 +15,7 @@ function IndTeam(props) {
     const imgURL = require("../img/WC/" + Team_Arr[id] + ".png")
     return(
       <>
-      <img src={imgURL} style={{width:"445px", height:"430px"}}alt={Team_Arr[id]}/>
+      <img src={imgURL} style={{width:"445px", height:"430px"}} alt={Team_Arr[id]}/>
       </>
     );
   }
@@ -92,8 +92,8 @@ function IndTeam(props) {
       </div>
       <War id="0" team_id={id}/>
       <War id="1" team_id={id}/>
-
     </div>
+    
   );
 }
 
