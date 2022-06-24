@@ -31,3 +31,12 @@
     margin-left: 100px;
     text-align: center;
 }
+
+.glove_img {
+    margin-top: 90vh;
+    margin-left: 20vw;
+    width: 60vw;
+    height: 70vh;
+    background-image: url('../img/야구장.png');
+    background-size: 915px 500px;
+}
