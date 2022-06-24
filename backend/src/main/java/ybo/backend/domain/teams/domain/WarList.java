@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class War {
+public class WarList {
     @Id
     @GeneratedValue
     private String name;
