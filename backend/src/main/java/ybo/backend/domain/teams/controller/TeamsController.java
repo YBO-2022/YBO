@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import ybo.backend.domain.realtime.service.RealtimeRankingService;
 import ybo.backend.domain.teams.domain.*;
 import ybo.backend.domain.teams.dto.TeamInfoDto;
 import ybo.backend.domain.teams.dto.WarDto;
@@ -20,6 +21,7 @@ import java.util.List;
 public class TeamsController {
 
     private final TeamsService teamsService;
+    private final RealtimeRankingService realtimeRankingService;
 
     @GetMapping("/teams/predictRank")
     public DefaultResponse predictRank(@PathVariable("teamId") Integer teamId) {
@@ -32,10 +34,13 @@ public class TeamsController {
         String teamName = teamsService.findTeamName(teamId);
 
         VictoryNum victoryNum = teamsService.findVictoryNum(teamName);
-        RealtimeRanking realtimeRanking = teamsService.findRealtimeRanking(teamName);
+
+        ybo.backend.domain.realtime.domain.RealtimeRanking byTeam = realtimeRankingService.findByTeam(teamName);
+        Integer ranking = byTeam.getRanking();
+
         SeasonHighLow seasonHighLow = teamsService.findSeasonHighLow(teamName);
 
-        TeamInfoDto teamInfoDto = new TeamInfoDto(victoryNum, realtimeRanking, seasonHighLow);
+        TeamInfoDto teamInfoDto = new TeamInfoDto(victoryNum, ranking, seasonHighLow);
         return DefaultResponse.res(StatusCode.OK, TeamsResponseMessage.TEAMS_INFO_SEND_SUCCESS, teamInfoDto);
     }
 

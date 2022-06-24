@@ -19,7 +19,6 @@ public class TeamsService {
     private final RankPredictRepository rankPredictRepository;
     private final VictoryNumRepository victoryNum;
     private final SeasonHighLowRepository seasonHighLowRepository;
-    private final RealtimeRankingRepository realtimeRankingRepository;
 
     @Transactional
     public List<RankPredict> findRankPredict() {
@@ -29,11 +28,6 @@ public class TeamsService {
     @Transactional
     public VictoryNum findVictoryNum(String team) {
         return victoryNum.findByTeam(team);
-    }
-
-    @Transactional
-    public RealtimeRanking findRealtimeRanking(String team) {
-        return realtimeRankingRepository.findByTeam(team);
     }
 
     @Transactional
