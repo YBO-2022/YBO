@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from '../request';
 import "../css/GoldenGlove.css";
-
+import "../font/font.css";
 
 function GGRanking(props) {
   const id = Number(props.id);
@@ -80,7 +80,7 @@ function GGRanking(props) {
   return (
     
         <div>
-            <div className="GGRankingTable_title" >
+            <div className="GGRankingTable_title" style={{fontFamily:"NanumBarunGothic"}}>
                 {titles[id]}
             </div>
             <table className="GGRankingTable">

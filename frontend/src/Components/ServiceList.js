@@ -4,6 +4,7 @@ import "../css/MainPlayer.css";
 import era from "../img/ERA.png";
 import glove from "../img/GLOVE.png";
 import ops from "../img/OPS.png";
+import "../font/font.css";
 
 
 
@@ -19,7 +20,7 @@ function ServiceList(props) {
         <NavLink to={`/Player/${id}`} key={id} style={{ textDecoration: 'none'}}>
         <img className='Service_Img' src={img[id]} alt={title[id]}/>
         <div className='Service_Name'>{title[id]}</div>
-        <div className='Service_Info'>{desc[id]}</div>
+        <div className='Service_Info' >{desc[id]}</div>
         </NavLink>
       );}else{
         return(

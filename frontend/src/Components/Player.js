@@ -107,8 +107,8 @@ function content(id){
           <div className="player_info">
             <span className="other_player" style={{fontSize:"18px"}}><NavLink to={`/Player/${move_id}`} className="linktootherside" style={{textDecoration:"None", fontSize: "18px", color:"black"}} > {Player_Arr[move_id]}</NavLink> 보러가기</span>
             <p style={{position:"relative", top:"8px"}}>
-            <p className="player_title">{title[id]}</p>
-            <p style={{whiteSpace: "pre-wrap" , lineHeight:"150%"}}>{desc[id]}</p>
+            <p className="player_title" style={{fontFamily:"MICEGothic Bold"}}>{title[id]}</p>
+            <p style={{whiteSpace: "pre-wrap" , lineHeight:"150%", fontFamily:"MICEGothic Bold"}}>{desc[id]}</p>
           </p>
           </div>
           <div>
