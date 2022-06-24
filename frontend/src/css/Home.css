@@ -99,14 +99,13 @@ body {
   /*<div className="icon6"><img src="" width={40} height={40} alt=""/></div>*/
 
   .teamselect{
-    height: 60px;
-    width: 120px;
-    margin-bottom: 0.2vh;
-    margin-right :0.2vw ;
+    height: 40px;
+    width: 90px;
+    margin-bottom: 2px;
+    margin-right :1px ;
     color: white;
     background-color: #3c65b1e9;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 17px;
     border-radius: 5px;
     border: none;
   }
@@ -116,7 +115,7 @@ body {
   }
 
 .teamcontainer{
-  width: 630px;
+  width: 480px;
 
 }
 
