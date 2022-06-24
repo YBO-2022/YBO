@@ -62,7 +62,7 @@ const RealTitle= ["< 타자 랭킹 >", "< 투수 랭킹 >"]
 
   return (
     <div>
-    <div className="Home_Player_Ranking_Page_Title">{RealTitle[id]}</div>
+    <div className="Home_Player_Ranking_Page_Title" style={{fontFamily:"MICEGothic Bold"}}>{RealTitle[id]}</div>
     <div>
       <table style={{borderCollapse:"collapse"}}>
       <div className="Home_Player_Ranking_Table_Total">

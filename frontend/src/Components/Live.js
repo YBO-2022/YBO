@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from '../request';
 import "../css/Live.css";
+import "../font/font.css";
 
 function Live() {
 
@@ -108,7 +109,7 @@ function Live() {
   return (
     <div className="Live_Page">
       <div className="Live_Container">
-        <h1>KBO 정규리그 경기 결과</h1>
+        <h1 style={{fontFamily:"MICEGothic Bold"}}>KBO 정규리그 경기 결과</h1>
         <div className="Live_table">
         <p className="Date"> {today_month}.{today_date} ({dayOfWeek})</p>
         {content()}
