@@ -3,6 +3,8 @@ import {NavLink, useLocation} from "react-router-dom";
 import '../css/HomeNav.css';
 import logo from "../img/ybo_logo.png";
 import NavItem from "./NavItem";
+import "../font/font.css";
+
 function Nav() {
     
     const pathName = useLocation().pathname;
@@ -21,7 +23,7 @@ function Nav() {
               <div>
                 <img className="nav_logo"  src={logo}  alt="logo"/>
               </div>
-              <div className="navcomment">YBO</div>
+              <div className="navcomment" style={{fontFamily:"Vitro_core"}}>YBO</div>
 
         </div>
         <div className="nav">
