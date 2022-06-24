@@ -34,9 +34,51 @@
 
 .glove_img {
     margin-top: 90vh;
-    margin-left: 20vw;
-    width: 60vw;
-    height: 70vh;
+    margin-left: 40vh;
+    width: 950px;
+    height: 500px;
+    object-fit: cover;
     background-image: url('../img/야구장.png');
     background-size: 915px 500px;
+}
+
+.g_one {
+    position: relative;
+    top: 170px;
+    left: 150px;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.g_two {
+    position: relative;
+    top:220px;
+    left: 370px;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+.g_three {
+    position: relative;
+    top:290px;
+    font-weight: bold;
+    font-size: 23px;
+    left: 245px;
+}
+
+.g_four {
+    position: relative;
+    top: 290px;
+    font-weight: bold;
+    font-size: 23px;
+    left:430px;
+}
+
+.g_five {
+    font-weight: bold;
+    font-size: 23px;
+    position: relative;
+    top: 350px;
+    left: 430px;
 }
