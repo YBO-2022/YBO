@@ -1,0 +1,24 @@
+.war_title {
+    float:left; 
+    margin-left:25vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 17vh;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    margin-top: 2vh;
+    padding-right: 10vw;
+}
+
+.war_table {
+    position: relative;
+    float: left; 
+    background-color: white;
+    border-radius: 10px; 
+    width: 1050px;
+    height: 30vh; 
+    padding-top: 5px; 
+    margin-top:3vh;
+    margin-left: 24.5vw;
+}
