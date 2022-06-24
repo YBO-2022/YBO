@@ -3,7 +3,7 @@ package ybo.backend.domain.teams.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ybo.backend.domain.teams.domain.War;
+import ybo.backend.domain.teams.domain.WarList;
 import ybo.backend.domain.teams.repository.WarRepository;
 
 import java.util.List;
@@ -16,12 +16,12 @@ public class TeamsService {
     private final WarRepository warRepository;
 
     @Transactional
-    public List<War> findTop5War(String team) {
+    public List<WarList> findTop5War(String team) {
         return warRepository.findTop5War(team);
     }
 
     @Transactional
-    public List<War> findLow5War(String team) {
+    public List<WarList> findLow5War(String team) {
         return warRepository.findLow5War(team);
     }
 
