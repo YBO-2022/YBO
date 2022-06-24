@@ -27,5 +27,17 @@ services:
       - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
       - SPRING_PROFILES_ACTIVE=prod
+      - FLASK_SERVER_IP=ybo_flask
     # mem_limit: 128m
+    links:
+      - flask
 
+  flask:
+    image: wngusrud27/docker-flask
+    ports: 
+      - "5000:5000"
+    container_name: ybo_flask
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}

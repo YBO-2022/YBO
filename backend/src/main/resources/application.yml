@@ -1,5 +1,5 @@
 server:
-  port: '5000'
+  port: '8088'
   use-forward-headers: true
 
 logging:
@@ -20,6 +20,18 @@ spring:
     active: local
   mvc:
     throw-exception-if-no-handler-found: true
+
+restTemplate:
+  factory:
+    readTimeout: 5000
+    connectTimeout: 3000
+  httpClient:
+    maxConnTotal: 100
+    maxConnPerRoute: 5
+
+flask:
+  server:
+    url: http://${flask.server.ip}:5000
 ---
 
 spring:
@@ -39,6 +51,26 @@ spring:
 spring:
   config:
     activate:
+      on-profile: test
+  datasource:
+    url: ${DB_URL}
+    username: root
+    password: 12341234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+
+flask:
+  server:
+    ip: 127.0.0.1
+
+---
+spring:
+  config:
+    activate:
       on-profile: local
   datasource:
     url: jdbc:h2:tcp://localhost/~/test
@@ -52,3 +84,6 @@ spring:
     generate-ddl: true
     show-sql: true
 
+flask:
+  server:
+    ip: 127.0.0.1
