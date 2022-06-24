@@ -21,7 +21,7 @@ public class GoldengloveController {
 
     private final GoldengloveService goldengloveService;
 
-    /*
+
     @GetMapping("/goldenglove/era")
     public DefaultResponse findEra() {
         List<EraPredict> eraPredictPredictionTop10 = goldengloveService.findEraPrediction();
@@ -39,8 +39,8 @@ public class GoldengloveController {
         List<SquadPredict> squadPrediction = goldengloveService.findSquadPrediction();
         return DefaultResponse.res(StatusCode.OK, GoldengloveResponseMessage.GOLDENGLOVE_SEND_SUCCESS, squadPrediction);
     }
-     */
 
+/*
     @GetMapping("/goldenglove")
     public DefaultResponse findGOLD() {
         List<EraPredict> eraPredictPredictionTop10 = goldengloveService.findEraPrediction();
@@ -50,5 +50,7 @@ public class GoldengloveController {
         GoldengloveDto goldengloveDto = new GoldengloveDto(eraPredictPredictionTop10, opsPredictPredictionTop10, squadPrediction);
         return DefaultResponse.res(StatusCode.OK, GoldengloveResponseMessage.GOLDENGLOVE_SEND_SUCCESS, goldengloveDto);
     }
+
+ */
 
 }
