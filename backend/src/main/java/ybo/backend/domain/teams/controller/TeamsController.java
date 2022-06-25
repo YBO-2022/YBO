@@ -24,7 +24,7 @@ public class TeamsController {
     private final RealtimeRankingService realtimeRankingService;
 
     @GetMapping("/teams/predictRank")
-    public DefaultResponse predictRank(@PathVariable("teamId") Integer teamId) {
+    public DefaultResponse predictRank() {
         List<RankPredict> rankPredict = teamsService.findRankPredict();
         return DefaultResponse.res(StatusCode.OK, TeamsResponseMessage.RANK_PREDICT_SEND_SUCCESS, rankPredict);
     }

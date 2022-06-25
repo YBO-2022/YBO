@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "rank_predict")
+@Entity
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
