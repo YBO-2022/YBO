@@ -41,7 +41,6 @@ function War(props) {
     if (error) return <div>에러가 발생했습니다</div>;
     if (!Data) return null;
   
-console.log(Data)
 
 return (
     <div>
