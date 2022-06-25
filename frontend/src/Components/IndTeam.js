@@ -54,7 +54,7 @@ if (!Data) return null;
     const imgURL = require("../img/그래프/" + Team_Arr[id] + ".png")
     return(
       <>
-      <img src={imgURL} alt={Team_Arr[id]} style={{width:"1200px",position:"relative", marginLeft:"250px"}}/>
+      <img src={imgURL} alt={Team_Arr[id]} style={{width:"1000px",position:"relative", marginLeft:"250px"}}/>
       </>
     );
   }

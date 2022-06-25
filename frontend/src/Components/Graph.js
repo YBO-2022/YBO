@@ -38,10 +38,10 @@ if (error) return <div>에러가 발생했습니다</div>;
 if (!Data) return null;
 
     return (
-    <div style={{width:"70vw", marginLeft:"250px",position:"relative", top:"-70vh"}}>
-      <p style={{clear:"both", marginLeft:"250px", color:"black",fontWeight:"bold", textAlign:"center", fontSize:"20px"}}>역대 팀 순위</p>
-    <LineChart style={{position:"relative", marginLeft:"250px"}}
-      width={1200}
+    <div style={{width:"70vw", marginLeft:"200px",position:"relative", top:"-70vh"}}>
+      <p style={{clear:"both", marginLeft:"200px", color:"black",fontWeight:"bold", textAlign:"center", fontSize:"20px"}}>역대 팀 순위</p>
+    <LineChart style={{position:"relative", marginLeft:"200px"}}
+      width={1000}
       height={300}
       data={Data}>
       <CartesianGrid strokeDasharray="3 3" />
