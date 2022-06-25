@@ -5,7 +5,6 @@ import Player from "./Components/Player";
 import MainTeam from "./Components/MainTeam";
 import GoldenGlove from "./Components/GoldenGlove";
 import Team from "./Components/Team";
-import Graph from "./Components/Graph";
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -20,7 +19,6 @@ function App() {
       <Route path="/Team/*" element={<Team/>}/>
       <Route path="/MainTeam/*" element={<MainTeam/>}/>
       <Route path="/GoldenGlove" element={<GoldenGlove/>}/>
-      <Route path="/g" element={<Graph/>}/>
       <Route path="*" element={"Not Found"}/>
       </Routes>
     </div>

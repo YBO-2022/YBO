@@ -12,7 +12,7 @@ function RankingPrediction() {
               setError(null);
               setRanking(null);
               setLoading(false)
-              const response = await axios.get("/realtime-ranking");
+              const response = await axios.get("/teams/predictRank");
 
             setRanking(response.data.data);
           } catch(e){
@@ -38,11 +38,11 @@ function RankingPrediction() {
            {table_title.map((title)=>(
                <th className="Prediction_Table_Title" style={{verticalAlign:"middle"}}>{title}</th>
            ))}
-            {ranking.map((rank)=>(
+            {ranking.map((rank,idx)=>(
                <tr className="Prediction_Table_Content" style={{textAlign: "center"}}>
-                   <td>{rank.ranking}</td>
+                   <td>{idx+1}</td>
                    <td>{rank.team}</td>
-                   <td>{rank.winRate}</td>
+                   <td>{rank.predictWinRate}</td>
 
                </tr> 
             ))}
