@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import axios from '../request';
 import SideBar from "./sidebar";
 import War from "./War";
+import Graph from "./Graph";
 import TeamBar from "./TeamBar";
 import "../font/font.css";
 
@@ -53,7 +54,7 @@ if (!Data) return null;
     const imgURL = require("../img/그래프/" + Team_Arr[id] + ".png")
     return(
       <>
-      <img src={imgURL} alt={Team_Arr[id]} style={{width:"70vw", marginLeft:"7vw"}}/>
+      <img src={imgURL} alt={Team_Arr[id]} style={{width:"1200px",position:"relative", marginLeft:"250px"}}/>
       </>
     );
   }
@@ -63,17 +64,19 @@ if (!Data) return null;
         <SideBar/>
       </div>
       <TeamBar team_id={id}/>
+      <Graph team_id={id}/>
+      <div className="mention_container">
       <div className="mention_title" style={{fontFamily:"MICEGothic Bold"}}>
         팀별 언급량
       </div>
-      <div className="mention_container">
+
         {mention()}
       </div>
+      <div className="main_player_container">
        
       <div className="main_player_title" style={{fontFamily:"MICEGothic Bold"}}>
          주전
       </div>
-      <div className="main_player_container">
         <div className="main_player_img_box">
           <div className="one" style={{fontFamily:"NanumBarunGothic"}}><span style={{paddingRight: "15%"}}>{Data.lf}</span> <span style={{paddingRight: "15%"}}>{Data.cf}</span> {Data.rf}</div>
           <div className="two" style={{fontFamily:"NanumBarunGothic"}}><span style={{paddingRight: "5%"}}>{Data.ss}</span>{Data.sb}</div>

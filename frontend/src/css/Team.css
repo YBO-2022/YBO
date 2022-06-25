@@ -39,21 +39,27 @@
     margin-top: 2vh;
 }
 
-.mention_container {
-    margin-top: 0.5vw;
-}
 
 .wordcloud_container {
     margin-top: 0.5vw;
     margin-left: 64vw;
 }
 
+.mention_container {
+    width: 70vw;
+    position: relative;
+    margin-left: 250px;
+    top: -60vh;
+}
+
 .mention_title {
     color: black;
     font-weight: bold;
-    margin-top: 17vh;
     text-align: center;
+    position: relative;
     font-size: 20px;
+    margin-left: 250px;
+    top: -75vh;
 }
 
 .wordcloud_title {
