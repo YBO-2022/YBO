@@ -18,6 +18,7 @@ function MP(props){
               const URL = "/teams/" + props.team_id + "/teamInfo"
               const response = await axios.get(URL);
               setData(response.data.data)
+
           } catch(e){
               setError(e);
     
