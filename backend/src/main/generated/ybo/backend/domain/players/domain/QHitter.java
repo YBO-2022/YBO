@@ -27,15 +27,21 @@ public class QHitter extends EntityPathBase<Hitter> {
 
     public final NumberPath<Integer> hit = createNumber("hit", Integer.class);
 
+    public final NumberPath<Integer> hitterId = createNumber("hitterId", Integer.class);
+
     public final NumberPath<Integer> homerun = createNumber("homerun", Integer.class);
 
     public final StringPath name = createString("name");
+
+    public final NumberPath<Float> obp = createNumber("obp", Float.class);
 
     public final NumberPath<Float> ops = createNumber("ops", Float.class);
 
     public final NumberPath<Integer> pa = createNumber("pa", Integer.class);
 
     public final NumberPath<Integer> rbi = createNumber("rbi", Integer.class);
+
+    public final NumberPath<Float> slg = createNumber("slg", Float.class);
 
     public final NumberPath<Integer> steal = createNumber("steal", Integer.class);
 

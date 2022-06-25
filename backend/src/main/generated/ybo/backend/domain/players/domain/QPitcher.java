@@ -27,6 +27,8 @@ public class QPitcher extends EntityPathBase<Pitcher> {
 
     public final NumberPath<Integer> hit = createNumber("hit", Integer.class);
 
+    public final NumberPath<Integer> hold = createNumber("hold", Integer.class);
+
     public final NumberPath<Integer> homerun = createNumber("homerun", Integer.class);
 
     public final NumberPath<Float> inning = createNumber("inning", Float.class);
@@ -35,7 +37,11 @@ public class QPitcher extends EntityPathBase<Pitcher> {
 
     public final StringPath name = createString("name");
 
+    public final NumberPath<Integer> pitcherId = createNumber("pitcherId", Integer.class);
+
     public final NumberPath<Integer> runs = createNumber("runs", Integer.class);
+
+    public final NumberPath<Integer> save = createNumber("save", Integer.class);
 
     public final NumberPath<Integer> strikeout = createNumber("strikeout", Integer.class);
 

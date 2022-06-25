@@ -1,5 +1,6 @@
 package ybo.backend.domain.players.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,6 +15,8 @@ import javax.persistence.*;
 public class Hitter {
     // 이름 팀 OPS 게임수 타석 타율 안타 홈런 타점 도루 삼진 병살 WAR
     @Id @GeneratedValue
+    @JsonIgnore
+    private Integer hitterId;
     private String name;
     private String team;
     private Float ops;
@@ -27,5 +30,7 @@ public class Hitter {
     private Integer strikeout; // 삼진
     private Integer dp; // 병살
     private Float war; // WAR
+    private Float obp; // 출루율
+    private Float slg; // 장타율
 }
 
