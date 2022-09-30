@@ -42,7 +42,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create # 개발이 진전된 다음 update로 수정
+      ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
     show-sql: true
@@ -80,7 +80,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    #    database-platform: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
     show-sql: true
 
