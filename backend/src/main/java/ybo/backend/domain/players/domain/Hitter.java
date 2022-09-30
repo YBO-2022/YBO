@@ -15,8 +15,9 @@ import javax.persistence.*;
 public class Hitter {
     // 이름 팀 OPS 게임수 타석 타율 안타 홈런 타점 도루 삼진 병살 WAR
     @Id @GeneratedValue
+    @Column(name = "hitter_id")
     @JsonIgnore
-    private Integer hitterId;
+    private Integer id;
     private String name;
     private String team;
     private Float ops;

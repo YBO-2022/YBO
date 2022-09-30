@@ -15,12 +15,10 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RankingHistory {
-    @Id
-    @GeneratedValue
-
+    @Id @GeneratedValue
     @Column(name = "ranking_history_id")
     @JsonIgnore
-    private Integer rankingHistoryId;
+    private Integer id;
     private Integer year;
     private String team;
     private Integer ranking;
