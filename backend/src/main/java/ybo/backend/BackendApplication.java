@@ -14,17 +14,17 @@ import ybo.backend.global.response.DefaultResponse;
 @EnableWebMvc
 public class BackendApplication {
 
-	@Autowired
-	RestTemplate restTemplate;
+	// @Autowired
+	// RestTemplate restTemplate;
 
-	@Value("${flask.server.url}")
-	private String flaskServerUrl;
+	// @Value("${flask.server.url}")
+	// private String flaskServerUrl;
 
 	public static void main(String[] args)  {
 		ApplicationContext context = SpringApplication.run(BackendApplication.class, args);
 		Test test = context.getBean(Test.class);
 		test.say();
-		test.realtimeCrawling();
+		// test.realtimeCrawling();
 	}
 
 	@Component
@@ -36,9 +36,9 @@ public class BackendApplication {
 			System.out.println("active: " + active );
 			System.out.println("*************************");
 		}
-		private void realtimeCrawling(){
-			restTemplate.getForObject(flaskServerUrl+"/ranking", DefaultResponse.class);
-			restTemplate.getForObject(flaskServerUrl+"/game", DefaultResponse.class);
-		}
+		//private void realtimeCrawling(){
+		//	restTemplate.getForObject(flaskServerUrl+"/ranking", DefaultResponse.class);
+		//	restTemplate.getForObject(flaskServerUrl+"/game", DefaultResponse.class);
+		//}
 	}
 }
