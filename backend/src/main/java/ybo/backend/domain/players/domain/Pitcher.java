@@ -18,7 +18,7 @@ public class Pitcher {
     @Id @GeneratedValue
     @Column(name = "pitcher_id")
     @JsonIgnore
-    private Integer pitcherId;
+    private Integer id;
     private String name;
     private String team;
     private Float era;
