@@ -21,7 +21,5 @@ public class EraPredict {
     private String name;
     private String team;
     private Float era;
-
-    //@Column(name = "predict_era")
     private Float predictEra;
 }
