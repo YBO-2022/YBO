@@ -12,8 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RankPredict {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "rank_predict_id")
     @JsonIgnore
     private Integer rankPredictId;

@@ -14,8 +14,11 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FirstTeam {
-    @Id
-    @GeneratedValue
+
+    @Id @GeneratedValue
+    @Column(name = "first_team_id")
+    private Long id;
+
     @Column(name = "team")
     private String team;
     @Column(name = "c")

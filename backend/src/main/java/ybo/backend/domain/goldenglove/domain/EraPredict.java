@@ -15,6 +15,9 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class EraPredict {
     @Id @GeneratedValue
+    @Column(name = "era_predict_id")
+    private Long id;
+
     private String name;
     private String team;
     private Float era;
