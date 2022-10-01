@@ -1,5 +1,6 @@
 package ybo.backend.domain.realtime.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import javax.persistence.Id;
 public class RealtimeRanking {
     @Id @GeneratedValue
     @Column(name = "realtime_ranking_id")
+    @JsonIgnore
     private Long id;
     private String team;
     private Integer ranking;

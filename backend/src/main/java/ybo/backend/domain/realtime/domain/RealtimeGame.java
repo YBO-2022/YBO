@@ -1,6 +1,7 @@
 package ybo.backend.domain.realtime.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,7 @@ import javax.persistence.Id;
 public class RealtimeGame {
     @Id @GeneratedValue
     @Column(name = "realtime_game_id")
+    @JsonIgnore
     private Long id;
     private String gameState;
     private String leftTeam;
