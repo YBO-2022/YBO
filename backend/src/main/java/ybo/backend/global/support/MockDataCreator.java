@@ -18,6 +18,10 @@ import ybo.backend.domain.players.domain.Hitter;
 import ybo.backend.domain.players.domain.Pitcher;
 import ybo.backend.domain.players.repository.HitterRepository;
 import ybo.backend.domain.players.repository.PitcherRepository;
+import ybo.backend.domain.realtime.domain.RealtimeGame;
+import ybo.backend.domain.realtime.domain.RealtimeRanking;
+import ybo.backend.domain.realtime.repository.RealtimeGameRepository;
+import ybo.backend.domain.realtime.repository.RealtimeRankingRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +37,14 @@ public class MockDataCreator implements CommandLineRunner {
     @Autowired EraPredictRepository eraPredictRepository;
     @Autowired OpsPredictRepository opsPredictRepository;
     @Autowired SquadPredictRepository squadPredictRepository;
+    @Autowired RealtimeGameRepository realtimeGameRepository;
+    @Autowired RealtimeRankingRepository realtimeRankingRepository;
 
     @Override
     public void run(String... args) throws Exception {
         createMockGoldenGloves();
         createMockPlayers();
+        createMockRealtimes();
     }
 
     private void createMockGoldenGloves() {
@@ -131,5 +138,42 @@ public class MockDataCreator implements CommandLineRunner {
         pitcherRepository.saveAll(pitchers);
     }
 
+    private void createMockRealtimes() {
+        List<RealtimeGame> realtimeGames = new ArrayList<>();
+        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "SSG", "KIA",
+                0, 0, "17:00", "모리만도", "양현종"));
+        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "두산", "심성",
+                0, 0, "17:00", "곽빈", "수아레즈"));
+        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "NC", "LG",
+                0, 0, "17:00", "더모디", "배재준"));
+        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "KT", "롯데",
+                0, 0, "17:00", "소형준", "반즈"));
+        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "키움", "한화",
+                0, 0, "17:00", "안우진", "장민재"));
+        realtimeGameRepository.saveAll(realtimeGames);
+
+        List<RealtimeRanking> realtimeRankings = new ArrayList<>();
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("SSG", 1, 139,
+                87, 48, 4, 0.644f, 0f, "1승"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("LG", 2, 136,
+                84, 50, 2, 0.627f, 2.5f, "1승"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("KT", 3, 138,
+                77, 59, 2, 0.566f, 10.5f, "4승"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("키움", 4, 142,
+                79, 61, 2, 0.564f, 10.5f, "1패"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("KIA", 5, 137,
+                66, 70, 1, 0.485f, 21.5f, "3승"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("NC", 6, 137,
+                62, 72, 3, 0.463f, 24.5f, "2패"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("삼성", 7, 138,
+                62, 74, 4, 0.456f, 25.5f, "2승"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("롯데", 7, 140,
+                62, 74, 4, 0.456f, 25.5f, "1승"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("두산", 9, 137,
+                57, 78, 2, 0.422f, 30f, "1패"));
+        realtimeRankings.add(RealtimeRanking.createRealtimeRanking("한화", 10, 140,
+                44, 94, 2, 0.319f, 44.5f, "5패"));
+        realtimeRankingRepository.saveAll(realtimeRankings);
+    }
 
 }
