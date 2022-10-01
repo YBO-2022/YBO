@@ -1,6 +1,7 @@
 package ybo.backend.domain.teams.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class SeasonHighLow {
 
     @Id @GeneratedValue
@@ -22,4 +24,8 @@ public class SeasonHighLow {
     private String team;
     private Integer seasonHigh;
     private Integer seasonLow;
+
+    public static SeasonHighLow createSeasonHighLow(String team, Integer seasonHigh, Integer seasonLow){
+        return SeasonHighLow.builder().team(team).seasonHigh(seasonHigh).seasonLow(seasonLow).build();
+    }
 }

@@ -17,7 +17,6 @@ import ybo.backend.global.response.StatusCode;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class PlayersController {

@@ -1,8 +1,10 @@
 package ybo.backend.domain.teams.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import ybo.backend.domain.realtime.domain.RealtimeGame;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class FirstTeam {
 
     @Id @GeneratedValue
@@ -41,4 +44,10 @@ public class FirstTeam {
     private String P;
     @Column(name = "dh")
     private String DH;
+
+    public static FirstTeam createFirstTeam(String team, String C, String FB, String SB, String TB, String SS, String RF,
+                                            String CF, String LF, String P, String DH){
+        return FirstTeam.builder().team(team).C(C).FB(FB).SB(SB).TB(TB)
+                .SS(SS).RF(RF).CF(CF).LF(LF).P(P).DH(DH).build();
+    }
 }

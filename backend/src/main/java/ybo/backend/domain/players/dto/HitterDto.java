@@ -38,17 +38,3 @@ public class HitterDto {
                 .war(hitter.getWar()).build();
     }
 }
-
-/*
-public static RealtimeRankingDto createDto(RealtimeRanking teamRank){
-        return RealtimeRankingDto.builder().ranking(teamRank.getRanking())
-                .team(teamRank.getTeam())
-                .gameNumber(teamRank.getGameNumber())
-                .winNumber(teamRank.getWinNumber())
-                .loseNumber(teamRank.getLoseNumber())
-                .drawNumber(teamRank.getDrawNumber())
-                .winRate(teamRank.getWinRate())
-                .gameDiff(teamRank.getGameDiff())
-                .continuity(teamRank.getContinuity()).build();
-    }
- */

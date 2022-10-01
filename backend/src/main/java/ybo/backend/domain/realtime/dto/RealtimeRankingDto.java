@@ -9,7 +9,7 @@ import ybo.backend.domain.realtime.domain.RealtimeRanking;
 public class RealtimeRankingDto {
     private Integer ranking;
     private String team;
-    private String gameNumber;
+    private Integer gameNumber;
     private Integer winNumber;
     private Integer loseNumber;
     private Integer drawNumber;
