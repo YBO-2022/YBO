@@ -1,6 +1,7 @@
 package ybo.backend.domain.teams.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class VictoryNum {
 
     @Id @GeneratedValue
@@ -21,4 +23,8 @@ public class VictoryNum {
 
     private String team;
     private Integer victoryNum;
+
+    public static VictoryNum createVictoryNum(String team, Integer victoryNum){
+        return VictoryNum.builder().team(team).victoryNum(victoryNum).build();
+    }
 }

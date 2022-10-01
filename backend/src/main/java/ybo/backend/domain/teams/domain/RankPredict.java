@@ -2,6 +2,7 @@ package ybo.backend.domain.teams.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class RankPredict {
     @Id @GeneratedValue
     @Column(name = "rank_predict_id")
@@ -20,4 +22,8 @@ public class RankPredict {
     @JsonIgnore
     private Float winRate;
     private Float predictWinRate;
+
+    public static RankPredict createRankPredict(String team, Float winRate, Float predictWinRate){
+        return RankPredict.builder().team(team).winRate(winRate).predictWinRate(predictWinRate).build();
+    }
 }
