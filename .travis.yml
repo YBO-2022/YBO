@@ -19,7 +19,6 @@ services:
 
 before_install: 
   - export SPRING_PROFILES_ACTIVE=prod
-  - export FLASK_SERVER_IP=tmp
   - cd backend
   - chmod +x gradlew
 
