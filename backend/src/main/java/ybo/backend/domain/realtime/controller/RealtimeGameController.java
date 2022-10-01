@@ -39,7 +39,7 @@ public class RealtimeGameController {
         List<RealtimeGameDto> gameDtos = games.stream()
                 .map(g -> RealtimeGameDto.createDto(g))
                 .collect(Collectors.toList());
-        return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_RANKING_SEND_SUCCESS, gameDtos);
+        return DefaultResponse.res(StatusCode.OK, RealtimeResponseMessage.REALTIME_GAME_SEND_SUCCESS, gameDtos);
     }
 
     private boolean isTodayMonday(){
