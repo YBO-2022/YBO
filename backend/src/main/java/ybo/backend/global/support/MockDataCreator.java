@@ -31,7 +31,6 @@ import java.util.List;
 @Component
 @Transactional
 @Profile({"test", "local"})
-@Slf4j
 public class MockDataCreator implements CommandLineRunner {
 
     @Autowired HitterRepository hitterRepository;
@@ -46,8 +45,7 @@ public class MockDataCreator implements CommandLineRunner {
     @Autowired RankPredictRepository rankPredictRepository;
     @Autowired SeasonHighLowRepository seasonHighLowRepository;
     @Autowired VictoryNumRepository victoryNumRepository;
-    @Autowired
-    WarListRepository warListRepository;
+    @Autowired WarListRepository warListRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -152,7 +150,7 @@ public class MockDataCreator implements CommandLineRunner {
         List<RealtimeGame> realtimeGames = new ArrayList<>();
         realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "SSG", "KIA",
                 0, 0, "17:00", "모리만도", "양현종"));
-        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "두산", "심성",
+        realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "두산", "삼성",
                 0, 0, "17:00", "곽빈", "수아레즈"));
         realtimeGames.add(RealtimeGame.createRealTimeGame("시작 전", "NC", "LG",
                 0, 0, "17:00", "더모디", "배재준"));
