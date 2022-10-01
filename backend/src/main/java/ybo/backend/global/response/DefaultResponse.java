@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// https://devlog-wjdrbs96.tistory.com/197
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

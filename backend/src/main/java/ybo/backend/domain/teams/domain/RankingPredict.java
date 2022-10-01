@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RankPredict {
+public class RankingPredict {
     @Id @GeneratedValue
     @Column(name = "rank_predict_id")
     @JsonIgnore
@@ -23,7 +23,7 @@ public class RankPredict {
     private Float winRate;
     private Float predictWinRate;
 
-    public static RankPredict createRankPredict(String team, Float winRate, Float predictWinRate){
-        return RankPredict.builder().team(team).winRate(winRate).predictWinRate(predictWinRate).build();
+    public static RankingPredict createRankPredict(String team, Float winRate, Float predictWinRate){
+        return RankingPredict.builder().team(team).winRate(winRate).predictWinRate(predictWinRate).build();
     }
 }
