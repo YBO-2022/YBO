@@ -25,8 +25,6 @@ services:
       dockerfile: Dockerfile
       context: ./backend
     container_name: ybo_backend
-    volumes: 
-      - ./backend:/app
     environment:
       SPRING_PROFILES_ACTIVE: test
       SPRING_DATASOURCE_URL: jdbc:mysql://ybo_mysql:3306/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
