@@ -1,13 +1,11 @@
 FROM openjdk:11-jdk
 
+WORKDIR /usr/src/app
+
 VOLUME /tmp
 
 ARG JAR_FILE=./build/libs/*.jar
 
-# COPY ${JAR_FILE} /app.jar
+COPY ${JAR_FILE} ./app.jar
 
-ADD ${JAR_FILE} /app.jar
-
-CMD ["java","-jar","app.jar"]
-
-
+CMD ["java","-jar","./app.jar"]
