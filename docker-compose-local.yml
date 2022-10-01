@@ -32,22 +32,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://ybo_mysql:3306/ybo_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 1234
-      FLASK_SERVER_IP: ybo_flask
     depends_on:
       - mysql
-      - flask
-
-  flask:
-    build: 
-      dockerfile: Dockerfile
-      context: ./flask
-    ports: 
-      - "5000:5000"
-    container_name: ybo_flask
-    environment:
-      DB_HOST: ybo_mysql
-      DB_USERNAME: root
-      DB_PASSWORD: 1234
 
   mysql:
     build: ./mysql
