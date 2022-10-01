@@ -32,7 +32,7 @@ public class RealtimeGameController {
 
     @GetMapping("/realtime-game")
     public DefaultResponse findAllGames() {
-        if (isTodayMonday()==true){
+        if (isTodayMonday()){
             return DefaultResponse.res(StatusCode.NO_CONTENT, RealtimeResponseMessage.REALTIME_GAME_MONDAY, "안녕!");
         }
         List<RealtimeGame> games = realtimeGameService.findAll();
@@ -47,11 +47,5 @@ public class RealtimeGameController {
         LocalDate date = LocalDate.now(zoneId);
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         return DayOfWeek.MONDAY==dayOfWeek;
-    }
-
-    // 테스트용
-    @GetMapping("/realtime-game/monday")
-    public DefaultResponse testMonday() {
-        return DefaultResponse.res(StatusCode.NO_CONTENT, RealtimeResponseMessage.REALTIME_GAME_MONDAY, "안녕!");
     }
 }
