@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import ybo.backend.domain.teams.domain.WarList;
 import java.util.List;
 
-public interface WarRepository extends JpaRepository<WarList, Long> {
+public interface WarListRepository extends JpaRepository<WarList, Long> {
     @Query(value = "select * from war_list w where w.team = :team order by war desc limit 0, 5", nativeQuery = true)
     List<WarList> findTop5War(@Param("team") String team);
 

@@ -15,7 +15,7 @@ public class TeamsService {
 
     private final FirstTeamRepository firstTeamRepository;
     private final RankingHistoryRepository rankingHistoryRepository;
-    private final WarRepository warRepository;
+    private final WarListRepository warListRepository;
     private final RankPredictRepository rankPredictRepository;
     private final VictoryNumRepository victoryNum;
     private final SeasonHighLowRepository seasonHighLowRepository;
@@ -37,11 +37,11 @@ public class TeamsService {
     }
 
     public List<WarList> findTop5War(String team) {
-        return warRepository.findTop5War(team);
+        return warListRepository.findTop5War(team);
     }
 
     public List<WarList> findLow5War(String team) {
-        return warRepository.findLow5War(team);
+        return warListRepository.findLow5War(team);
     }
 
     public List<RankingHistory> findRankingHistory(String team) {
