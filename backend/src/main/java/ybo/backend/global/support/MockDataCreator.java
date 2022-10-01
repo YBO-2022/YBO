@@ -1,7 +1,6 @@
 package ybo.backend.global.support;
 
 
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,8 +21,11 @@ import ybo.backend.domain.realtime.domain.RealtimeGame;
 import ybo.backend.domain.realtime.domain.RealtimeRanking;
 import ybo.backend.domain.realtime.repository.RealtimeGameRepository;
 import ybo.backend.domain.realtime.repository.RealtimeRankingRepository;
+import ybo.backend.domain.teams.domain.*;
+import ybo.backend.domain.teams.repository.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -39,12 +41,20 @@ public class MockDataCreator implements CommandLineRunner {
     @Autowired SquadPredictRepository squadPredictRepository;
     @Autowired RealtimeGameRepository realtimeGameRepository;
     @Autowired RealtimeRankingRepository realtimeRankingRepository;
+    @Autowired FirstTeamRepository firstTeamRepository;
+    @Autowired RankingHistoryRepository rankingHistoryRepository;
+    @Autowired RankPredictRepository rankPredictRepository;
+    @Autowired SeasonHighLowRepository seasonHighLowRepository;
+    @Autowired VictoryNumRepository victoryNumRepository;
+    @Autowired
+    WarListRepository warListRepository;
 
     @Override
     public void run(String... args) throws Exception {
         createMockGoldenGloves();
         createMockPlayers();
         createMockRealtimes();
+        createMockTeams();
     }
 
     private void createMockGoldenGloves() {
@@ -176,4 +186,74 @@ public class MockDataCreator implements CommandLineRunner {
         realtimeRankingRepository.saveAll(realtimeRankings);
     }
 
+    private void createMockTeams() {
+
+        List<String> teams = Arrays.asList("SSG", "키움", "LG", "KIA", "두산", "KT", "삼성", "NC", "롯데", "한화");
+
+        List<FirstTeam> firstTeams = new ArrayList<>();
+        for (String team : teams) {
+            firstTeams.add(FirstTeam.createFirstTeam(team, "C", "FB", "SB", "TB", "SS", "RF", "CF", "LF", "P", "DH"));
+        }
+        firstTeamRepository.saveAll(firstTeams);
+
+        List<RankingHistory> rankingHistories = new ArrayList<>();
+        Integer ranking = 1;
+        for (String team : teams) {
+            Integer year = 2021;
+            for (int i = 0; i < 10; i++) {
+                rankingHistories.add(RankingHistory.createRankingHistory(team, year-i, ranking));
+            }
+            ranking++;
+        }
+        rankingHistoryRepository.saveAll(rankingHistories);
+
+        List<RankPredict> rankPredicts = new ArrayList<>();
+        rankPredicts.add(RankPredict.createRankPredict("SSG", 0.647f, 0.459657f));
+        rankPredicts.add(RankPredict.createRankPredict("키움", 0.6f, 0.454133f));
+        rankPredicts.add(RankPredict.createRankPredict("LG", 0.58f, 0.448724f));
+        rankPredicts.add(RankPredict.createRankPredict("KIA", 0.544f, 0.44036f));
+        rankPredicts.add(RankPredict.createRankPredict("두산", 0.463f, 0.412653f));
+        rankPredicts.add(RankPredict.createRankPredict("KT", 0.5f, 0.409096f));
+        rankPredicts.add(RankPredict.createRankPredict("삼성", 0.457f, 0.403884f));
+        rankPredicts.add(RankPredict.createRankPredict("NC", 0.403f, 0.400197f));
+        rankPredicts.add(RankPredict.createRankPredict("롯데", 0.463f, 0.397569f));
+        rankPredicts.add(RankPredict.createRankPredict("한화", 0.338f, 0.335523f));
+        rankPredictRepository.saveAll(rankPredicts);
+
+        List<SeasonHighLow> seasonHighLows = new ArrayList<>();
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("SSG", 1, 1));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("키움", 2, 7));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("LG", 2, 5));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("KIA", 3, 10));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("KT", 5, 8));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("삼성", 3, 8));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("두산", 2, 7));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("롯데", 2, 8));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("NC", 8, 10));
+        seasonHighLows.add(SeasonHighLow.createSeasonHighLow("한화", 8, 10));
+        seasonHighLowRepository.saveAll(seasonHighLows);
+
+        List<VictoryNum> victoryNums = new ArrayList<>();
+        victoryNums.add(VictoryNum.createVictoryNum("KIA", 11));
+        victoryNums.add(VictoryNum.createVictoryNum("삼성", 8));
+        victoryNums.add(VictoryNum.createVictoryNum("두산", 6));
+        victoryNums.add(VictoryNum.createVictoryNum("SSG", 4));
+        victoryNums.add(VictoryNum.createVictoryNum("LG", 2));
+        victoryNums.add(VictoryNum.createVictoryNum("롯데", 2));
+        victoryNums.add(VictoryNum.createVictoryNum("한화", 1));
+        victoryNums.add(VictoryNum.createVictoryNum("NC", 1));
+        victoryNums.add(VictoryNum.createVictoryNum("kt", 1));
+        victoryNums.add(VictoryNum.createVictoryNum("키움", 0));
+        victoryNumRepository.saveAll(victoryNums);
+
+
+        List<WarList> warLists = new ArrayList<>();
+        for (String team : teams) {
+            Float war = 0.3f;
+            for (int i = 0; i < 10; i++) {
+                warLists.add(WarList.createWarList("길동"+Integer.toString(i), war+i, team));
+            }
+        }
+        warListRepository.saveAll(warLists);
+    }
 }
