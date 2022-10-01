@@ -21,7 +21,7 @@ public class RealtimeRanking {
     private Long id;
     private String team;
     private Integer ranking;
-    private String gameNumber;
+    private Integer gameNumber;
     private Integer winNumber;
     private Integer loseNumber;
     private Integer drawNumber;
@@ -29,7 +29,7 @@ public class RealtimeRanking {
     private Float gameDiff;
     private String continuity;
 
-    public static RealtimeRanking createRealtimeRanking(String team, Integer ranking, String gameNumber,
+    public static RealtimeRanking createRealtimeRanking(String team, Integer ranking, Integer gameNumber,
                                                         Integer winNumber, Integer loseNumber, Integer drawNumber,
                                                         Float winRate, Float gameDiff, String continuity){
         return RealtimeRanking.builder().team(team).ranking(ranking).gameNumber(gameNumber)
