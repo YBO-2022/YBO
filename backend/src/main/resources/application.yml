@@ -30,7 +30,6 @@ restTemplate:
     maxConnPerRoute: 5
 
 ---
-
 spring:
   config:
     activate:
@@ -42,7 +41,6 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
-    show-sql: true
 
 ---
 spring:
@@ -55,7 +53,6 @@ spring:
     hibernate:
       ddl-auto: create
     generate-ddl: true
-    show-sql: true
 
 ---
 spring:
