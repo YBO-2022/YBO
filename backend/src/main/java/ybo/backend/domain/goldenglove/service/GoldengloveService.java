@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ybo.backend.domain.goldenglove.domain.EraPredict;
 import ybo.backend.domain.goldenglove.domain.OpsPredict;
 import ybo.backend.domain.goldenglove.domain.SquadPredict;
-import ybo.backend.domain.goldenglove.repository.EraRepository;
-import ybo.backend.domain.goldenglove.repository.OpsRepository;
-import ybo.backend.domain.goldenglove.repository.SquadRepository;
+import ybo.backend.domain.goldenglove.repository.EraPredictRepository;
+import ybo.backend.domain.goldenglove.repository.OpsPredictRepository;
+import ybo.backend.domain.goldenglove.repository.SquadPredictRepository;
 
 import java.util.List;
 
@@ -17,20 +17,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GoldengloveService {
 
-    private final EraRepository eraRepository;
-    private final OpsRepository opsRepository;
-    private final SquadRepository squadRepository;
+    private final EraPredictRepository eraPredictRepository;
+    private final OpsPredictRepository opsPredictRepository;
+    private final SquadPredictRepository squadPredictRepository;
 
     public List<EraPredict> findEraPrediction() {
-        return eraRepository.findTop10ByOrderByPredictEraAsc();
+        return eraPredictRepository.findTop10ByOrderByPredictEraAsc();
     }
 
     public List<OpsPredict> findOpsPrediction() {
-        return opsRepository.findTop10ByOrderByPredictOpsDesc();
+        return opsPredictRepository.findTop10ByOrderByPredictOpsDesc();
     }
 
     public List<SquadPredict> findSquadPrediction() {
-        return squadRepository.findAll();
+        return squadPredictRepository.findAll();
     }
 
 }
