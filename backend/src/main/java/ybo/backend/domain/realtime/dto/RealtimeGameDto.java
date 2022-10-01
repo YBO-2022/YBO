@@ -11,8 +11,8 @@ public class RealtimeGameDto {
     private String gameState;
     private String leftTeam;
     private String rightTeam;
-    private String leftScore;
-    private String rightScore;
+    private Integer leftScore;
+    private Integer rightScore;
     private String state;
     private String leftPitcher;
     private String rightPitcher;
