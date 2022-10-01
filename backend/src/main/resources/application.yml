@@ -50,9 +50,6 @@ spring:
     activate:
       on-profile: test
   datasource:
-    url: ${DB_URL}
-    username: root
-    password: 12341234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
