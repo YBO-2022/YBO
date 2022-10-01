@@ -29,9 +29,6 @@ restTemplate:
     maxConnTotal: 100
     maxConnPerRoute: 5
 
-flask:
-  server:
-    url: http://${flask.server.ip}:5000
 ---
 
 spring:
@@ -63,10 +60,6 @@ spring:
     generate-ddl: true
     show-sql: true
 
-flask:
-  server:
-    ip: 127.0.0.1
-
 ---
 spring:
   config:
@@ -82,7 +75,3 @@ spring:
       ddl-auto: create
     generate-ddl: true
     show-sql: true
-
-flask:
-  server:
-    ip: 127.0.0.1
