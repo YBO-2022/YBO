@@ -1,7 +1,6 @@
 package ybo.backend.global.support;
 
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -42,7 +41,8 @@ public class MockDataCreator implements CommandLineRunner {
     @Autowired RealtimeRankingRepository realtimeRankingRepository;
     @Autowired FirstTeamRepository firstTeamRepository;
     @Autowired RankingHistoryRepository rankingHistoryRepository;
-    @Autowired RankPredictRepository rankPredictRepository;
+    @Autowired
+    RankingPredictRepository rankingPredictRepository;
     @Autowired SeasonHighLowRepository seasonHighLowRepository;
     @Autowired VictoryNumRepository victoryNumRepository;
     @Autowired WarListRepository warListRepository;
@@ -205,18 +205,18 @@ public class MockDataCreator implements CommandLineRunner {
         }
         rankingHistoryRepository.saveAll(rankingHistories);
 
-        List<RankPredict> rankPredicts = new ArrayList<>();
-        rankPredicts.add(RankPredict.createRankPredict("SSG", 0.647f, 0.459657f));
-        rankPredicts.add(RankPredict.createRankPredict("키움", 0.6f, 0.454133f));
-        rankPredicts.add(RankPredict.createRankPredict("LG", 0.58f, 0.448724f));
-        rankPredicts.add(RankPredict.createRankPredict("KIA", 0.544f, 0.44036f));
-        rankPredicts.add(RankPredict.createRankPredict("두산", 0.463f, 0.412653f));
-        rankPredicts.add(RankPredict.createRankPredict("KT", 0.5f, 0.409096f));
-        rankPredicts.add(RankPredict.createRankPredict("삼성", 0.457f, 0.403884f));
-        rankPredicts.add(RankPredict.createRankPredict("NC", 0.403f, 0.400197f));
-        rankPredicts.add(RankPredict.createRankPredict("롯데", 0.463f, 0.397569f));
-        rankPredicts.add(RankPredict.createRankPredict("한화", 0.338f, 0.335523f));
-        rankPredictRepository.saveAll(rankPredicts);
+        List<RankingPredict> rankingPredicts = new ArrayList<>();
+        rankingPredicts.add(RankingPredict.createRankPredict("SSG", 0.647f, 0.459657f));
+        rankingPredicts.add(RankingPredict.createRankPredict("키움", 0.6f, 0.454133f));
+        rankingPredicts.add(RankingPredict.createRankPredict("LG", 0.58f, 0.448724f));
+        rankingPredicts.add(RankingPredict.createRankPredict("KIA", 0.544f, 0.44036f));
+        rankingPredicts.add(RankingPredict.createRankPredict("두산", 0.463f, 0.412653f));
+        rankingPredicts.add(RankingPredict.createRankPredict("KT", 0.5f, 0.409096f));
+        rankingPredicts.add(RankingPredict.createRankPredict("삼성", 0.457f, 0.403884f));
+        rankingPredicts.add(RankingPredict.createRankPredict("NC", 0.403f, 0.400197f));
+        rankingPredicts.add(RankingPredict.createRankPredict("롯데", 0.463f, 0.397569f));
+        rankingPredicts.add(RankingPredict.createRankPredict("한화", 0.338f, 0.335523f));
+        rankingPredictRepository.saveAll(rankingPredicts);
 
         List<SeasonHighLow> seasonHighLows = new ArrayList<>();
         seasonHighLows.add(SeasonHighLow.createSeasonHighLow("SSG", 1, 1));

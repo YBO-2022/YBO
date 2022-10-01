@@ -1,7 +1,6 @@
 package ybo.backend.domain.teams.controller;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +24,8 @@ public class TeamsController {
 
     @GetMapping("/teams/predictRank")
     public DefaultResponse predictRank() {
-        List<RankPredict> rankPredict = teamsService.findRankPredict();
-        return DefaultResponse.res(StatusCode.OK, TeamsResponseMessage.RANK_PREDICT_SEND_SUCCESS, rankPredict);
+        List<RankingPredict> rankingPredict = teamsService.findRankPredict();
+        return DefaultResponse.res(StatusCode.OK, TeamsResponseMessage.RANK_PREDICT_SEND_SUCCESS, rankingPredict);
     }
 
     @GetMapping("/teams/{teamId}/teamInfo")

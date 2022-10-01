@@ -16,12 +16,12 @@ public class TeamsService {
     private final FirstTeamRepository firstTeamRepository;
     private final RankingHistoryRepository rankingHistoryRepository;
     private final WarListRepository warListRepository;
-    private final RankPredictRepository rankPredictRepository;
+    private final RankingPredictRepository rankingPredictRepository;
     private final VictoryNumRepository victoryNum;
     private final SeasonHighLowRepository seasonHighLowRepository;
 
-    public List<RankPredict> findRankPredict() {
-        return rankPredictRepository.findAll();
+    public List<RankingPredict> findRankPredict() {
+        return rankingPredictRepository.findAll();
     }
 
     public VictoryNum findVictoryNum(String team) {
