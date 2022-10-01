@@ -21,20 +21,16 @@ public class GoldengloveService {
     private final OpsRepository opsRepository;
     private final SquadRepository squadRepository;
 
-    @Transactional
     public List<EraPredict> findEraPrediction() {
         return eraRepository.findTop10ByOrderByPredictEraAsc();
     }
 
-    @Transactional
     public List<OpsPredict> findOpsPrediction() {
         return opsRepository.findTop10ByOrderByPredictOpsDesc();
     }
 
-    @Transactional
     public List<SquadPredict> findSquadPrediction() {
         return squadRepository.findAll();
     }
-
 
 }

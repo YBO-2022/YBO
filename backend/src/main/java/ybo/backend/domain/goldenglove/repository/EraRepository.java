@@ -6,6 +6,5 @@ import ybo.backend.domain.goldenglove.domain.EraPredict;
 import java.util.List;
 
 public interface EraRepository extends JpaRepository<EraPredict, Long> {
-    //List<EraPredict> findTop10ByOrderByEraAsc();
     List<EraPredict> findTop10ByOrderByPredictEraAsc();
 }
