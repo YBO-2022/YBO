@@ -19,12 +19,9 @@ services:
 
   backend:
     image: wngusrud27/docker-backend
-    container_name: app_backend
-    volumes: 
-      - ./backend:/app
     environment:
       - SPRING_DATASOURCE_URL=${DB_URL}
       - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
       - SPRING_PROFILES_ACTIVE=prod
-    # mem_limit: 128m
+
