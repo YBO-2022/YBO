@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import ybo.backend.domain.realtime.domain.RealtimeRanking;
 import ybo.backend.domain.realtime.service.RealtimeRankingService;
 import ybo.backend.domain.teams.domain.*;
 import ybo.backend.domain.teams.dto.TeamInfoDto;
@@ -15,7 +16,6 @@ import ybo.backend.global.response.StatusCode;
 
 import java.util.List;
 
-@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class TeamsController {
@@ -35,8 +35,8 @@ public class TeamsController {
 
         VictoryNum victoryNum = teamsService.findVictoryNum(teamName);
 
-        ybo.backend.domain.realtime.domain.RealtimeRanking byTeam = realtimeRankingService.findByTeam(teamName);
-        Integer ranking = byTeam.getRanking();
+        RealtimeRanking realtimeRanking = realtimeRankingService.findByTeam(teamName);
+        Integer ranking = realtimeRanking.getRanking();
 
         SeasonHighLow seasonHighLow = teamsService.findSeasonHighLow(teamName);
 
