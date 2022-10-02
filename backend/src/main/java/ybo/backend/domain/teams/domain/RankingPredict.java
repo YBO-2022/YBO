@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Builder
 public class RankingPredict {
     @Id @GeneratedValue
-    @Column(name = "rank_predict_id")
+    @Column(name = "ranking_predict_id")
     @JsonIgnore
     private Integer id;
     private String team;
